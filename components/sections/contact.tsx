@@ -17,6 +17,7 @@ import {
 import type { Translation } from "@/types";
 
 import { contactInfo } from "@/lib/constants";
+import { handleContactSubmit } from "@/lib/email";
 
 interface ContactProps {
   t: Translation;
@@ -134,7 +135,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-2">
-                  <form className="space-y-6" action={`mailto:${contactInfo.email}`} method="POST" encType="text/plain">
+                  <form className="space-y-6" onSubmit={handleContactSubmit}>
                     <div>
                       <Label htmlFor="name" className="mb-2 block">
                         {t.contact.name}
@@ -143,6 +144,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                         id="name"
                         name="name"
                         placeholder={t.contact.name}
+                        required
                       />
                     </div>
                     <div>
@@ -154,6 +156,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                         name="email"
                         type="email"
                         placeholder={t.contact.email}
+                        required
                       />
                     </div>
                     <div>
@@ -165,15 +168,16 @@ export function Contact({ t, isRTL }: ContactProps) {
                         name="message"
                         placeholder={t.contact.message}
                         rows={5}
+                        required
                       />
                     </div>
                     <Button
                       type="submit"
-                      className="flex gap-3 w-full cursor-pointer group hover:scale-105"
+                      className="flex gap-3 w-full cursor-pointer group hover:scale-103"
                     >
                       {t.contact.send}
                       <Send
-                        className={`w-4 h-4 transition-transform duration-200 ease-in-out ${
+                        className={`w-4 h-4 transition-transform duration-300 ease-in-out ${
                           isRTL
                             ? "group-hover:-translate-x-2 scale-x-[-1]"
                             : "group-hover:translate-x-2"

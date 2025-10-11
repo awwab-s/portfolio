@@ -21,6 +21,7 @@ export interface Project {
 export interface Skill {
   name: string
   logo: string
+  scale?: string
 }
 
 export interface Translation {

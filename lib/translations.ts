@@ -11,7 +11,7 @@ export const translations: Record<Language, Translation> = {
     },
     home: {
       greeting: "Hi! I'm",
-      awwab: "Awwab",
+      awwab: "System",
       title: "Full Stack Developer",
       subtitle: "I create beautiful and functional web applications with modern technologies",
       description:

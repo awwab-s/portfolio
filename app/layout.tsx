@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Poppins, Space_Grotesk, Noto_Sans_Arabic } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -36,8 +37,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${spaceGrotesk.variable} ${notoSansArabic.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${spaceGrotesk.variable} ${notoSansArabic.variable}`}
+    >
+      <body>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

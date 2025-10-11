@@ -76,7 +76,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
                     alt={skill.name}
                     width={96}
                     height={96}
-                    className="w-24 h-24 object-contain"
+                    className={`w-24 h-24 object-contain ${skill.scale || ""}`}
                   />
                 </div>
                 <p className="text-center text-md font-medium mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[128px] mx-auto truncate">
