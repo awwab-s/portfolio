@@ -29,7 +29,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
 
     // Initialize translateX depending on direction
     let translateX = isRTL ? -totalWidth : 0;
-    const speed = 0.5;
+    const speed = 1;
     let animationFrame: number;
 
     const animate = () => {

@@ -5,6 +5,7 @@ export interface TimelineItem {
   date: string;
   type: "education" | "experience";
   logo: string;
+  scale?: string;
 }
 
 export interface Project {

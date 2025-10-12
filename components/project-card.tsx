@@ -83,7 +83,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
             asChild
             className="cursor-pointer flex-1 min-w-0 gap-2"
           >
-            <Link href={project.github}>
+            <Link href={project.github} target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
               <span className="whitespace-nowrap">{t.projects.viewCode}</span>
             </Link>
@@ -93,7 +93,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
             asChild
             className="cursor-pointer flex-1 min-w-0 gap-2"
           >
-            <Link href={project.live}>
+            <Link href={project.live} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
               <span className="whitespace-nowrap truncate">
                 {t.projects.viewProject}
