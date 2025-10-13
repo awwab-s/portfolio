@@ -11,11 +11,11 @@ export const translations: Record<Language, Translation> = {
     },
     home: {
       greeting: "Hi! I'm",
-      awwab: "System",
+      awwab: "Awwab",
       title: "Full Stack Developer",
       subtitle: "I create beautiful and functional web applications with modern technologies",
       description:
-        "I'm a passionate full-stack developer with expertise in modern web technologies. I love creating user-friendly applications that solve real-world problems and provide exceptional user experiences.",
+        "I'm a 2025 Computer Engineering graduate passionate about modern technologies across both hardware and software. I've worked on various projects ranging from building React-based applications and training neural networks, to interfacing STM32 microcontrollers and developing RISC-V systems.",
       projects: "15+ Projects Completed",
       clients: "10+ Happy Clients",
       cta: "Get In Touch",
@@ -68,7 +68,7 @@ export const translations: Record<Language, Translation> = {
       title: "مطور ويب متكامل",
       subtitle: "أقوم بإنشاء تطبيقات ويب جميلة وعملية باستخدام التقنيات الحديثة",
       description:
-        "أنا مطور ويب متكامل شغوف بخبرة في تقنيات الويب الحديثة. أحب إنشاء تطبيقات سهلة الاستخدام تحل مشاكل العالم الحقيقي وتوفر تجارب استخدام استثنائية.",
+        "أنا خريج هندسة الحاسوب لعام ٢٠٢٥، شغوف بالتقنيات الحديثة في مجالي العتاد والبرمجيات. عملت على مشاريع متنوّعة تتراوح بين بناء تطبيقات تعتمد على React وتدريب الشبكات العصبية، إلى برمجة المتحكمات الدقيقة STM32 وتطوير أنظمة RISC-V.",
       projects: "أكثر من 15 مشروع مكتمل",
       clients: "أكثر من 10 عملاء راضين",
       cta: "تواصل معي",
@@ -121,7 +121,7 @@ export const translations: Record<Language, Translation> = {
       title: "مکمل ویب ڈویلپر",
       subtitle: "میں جدید ٹیکنالوجی کے ساتھ خوبصورت اور مفید ویب ایپلیکیشنز بناتا ہوں",
       description:
-        "میں جدید ویب ٹیکنالوجیز میں مہارت رکھنے والا ایک پرجوش مکمل ویب ڈویلپر ہوں۔ مجھے ایسی صارف دوست ایپلیکیشنز بنانا پسند ہے جو حقیقی مسائل حل کریں اور بہترین صارف تجربہ فراہم کریں۔",
+        "میں کمپیوٹر ہندسِیات کا ۲۰۲۵ گریجویٹ ہوں۔ مجھے جدید ٹیکنالوجی کے میدان—چاہے ہارڈویئر ہو یا سافٹ ویئر—میں بہت دلچسپی ہے۔ میں نے مختلف قسم کے منصوبات پر کام کیا ہے، جن میں ریئکٹ پر مبنی نظام تیار کرنا، اعصابی نیٹ ورکوں کو تربیت دینا، STM32 مائیکروکنٹولروں کے ساتھ ہم آہنگی پیدا کرنا، اور RISC-V بنیاد پر نظام تشکیل دینا شامل ہے۔",
       projects: "15+ مکمل منصوبے",
       clients: "10+ خوش کلائنٹس",
       cta: "رابطہ کریں",
@@ -174,7 +174,7 @@ export const translations: Record<Language, Translation> = {
       title: "Développeur Full Stack",
       subtitle: "Je crée des applications web belles et fonctionnelles avec des technologies modernes",
       description:
-        "Je suis un développeur full-stack passionné avec une expertise dans les technologies web modernes. J'aime créer des applications conviviales qui résolvent des problèmes du monde réel.",
+        "Je suis diplômé en 2025 en génie informatique, passionné par les technologies modernes, tant matérielles que logicielles. J’ai travaillé sur divers projets allant de la création d’applications basées sur React et de l’entraînement de réseaux neuronaux, à l’interfaçage de microcontrôleurs STM32 et au développement de systèmes RISC-V.",
       projects: "15+ projets terminés",
       clients: "10+ clients satisfaits",
       cta: "Contactez-moi",
@@ -227,7 +227,7 @@ export const translations: Record<Language, Translation> = {
       title: "Desarrollador Full Stack",
       subtitle: "Creo aplicaciones web hermosas y funcionales con tecnologías modernas",
       description:
-        "Soy un desarrollador full-stack apasionado con experiencia en tecnologías web modernas. Me encanta crear aplicaciones fáciles de usar que resuelven problemas del mundo real.",
+        "Soy un graduado de Ingeniería Informática de 2025, apasionado por las tecnologías modernas tanto de hardware como de software. He trabajado en diversos proyectos que van desde la creación de aplicaciones basadas en React y el entrenamiento de redes neuronales, hasta la conexión de microcontroladores STM32 y el desarrollo de sistemas RISC-V.",
       projects: "15+ proyectos completados",
       clients: "10+ clientes felices",
       cta: "Ponte en contacto",
