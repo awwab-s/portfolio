@@ -64,27 +64,6 @@ export const timelineData: TimelineItem[] = [
 ];
 
 export const projects: Project[] = [
-  // Web/App Development Projects
-  {
-    title: "Airline Booking Management System",
-    description: "An airline booking web application where users can search & book flights and admin can manage flights & schedules.",
-    image: "/project-ss/flight-booking.png",
-    tech: ["HTML", "CSS", "Javascript", "Bootstrap", "PHP", "MySQL"],
-    github: "https://github.com/awwab-s/Airline-Booking-Management-System/tree/main/DBMS%20Project",
-    live: "#",
-    category: "web-app",
-    year: 2023,
-  },
-  {
-    title: "NexSell: A Complete E-Commerce Platform",
-    description: "A MERN stack e-commerce marketplace with store management, AI customer assistance, & elastic search.",
-    image: "/project-ss/e-commerce.png",
-    tech: ["Next.js", "Mongodb", "Clerk", "OpenAI", "Elastic Search", "Stripe", "Socket.io"],
-    github: "https://github.com/bscw21027/final-year-project",
-    live: "https://fypmarket.vercel.app/",
-    category: "web-app",
-    year: 2024,
-  },
   {
     title: "Pizzario: A Pizza Ordering App",
     description: "A mobile app that simulates a complete pizza ordering experience from browsing & pizza customization to checkout.",
@@ -104,6 +83,106 @@ export const projects: Project[] = [
     live: "https://weather-app-awb.vercel.app/",
     category: "web-app",
     year: 2025,
+  },
+  {
+    title: "E-Commerce Customer Chatbot",
+    description: "AI-powered customer assistance chatbot for product suggession built on OpenAI GPT-3.5 Turbo and MongoDB search.",
+    image: "/project-ss/chatbot.png",
+    tech: ["Python", "OpenAI", "FastAPI", "MongoDB"],
+    github: "https://github.com/BSCE21002/fyp-chatbot",
+    live: "#",
+    category: "ai-ml",
+    year: 2025,
+  },
+  {
+    title: "NexSell: A Complete E-Commerce Platform",
+    description: "A MERN stack e-commerce marketplace with store management, AI customer assistance, & elastic search.",
+    image: "/project-ss/e-commerce.png",
+    tech: ["Next.js", "Mongodb", "Clerk", "OpenAI", "Elastic Search", "Stripe", "Socket.io"],
+    github: "https://github.com/bscw21027/final-year-project",
+    live: "https://fypmarket.vercel.app/",
+    category: "web-app",
+    year: 2024,
+  },
+  {
+    title: "GIS Crop Classification",
+    description: "Developed ML models based on Sentinel-2 satellite data to classify crop types in the Punjab region of Pakistan.",
+    image: "/project-ss/crop-classification.png",
+    tech: ["Python", "Google Earth Engine", "Sentinel-2", "Random Forest", "SVM"],
+    github: "#",
+    live: "https://www.linkedin.com/posts/awwab-s_pitb-itu-internship-activity-7261240017593753600-rvXX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh6ckQBczZFBaT6hcBRlQ8aHGPAVps4oF4",
+    category: "ai-ml",
+    year: 2024,
+  },
+  {
+    title: "Personalized Diet Recommendation System",
+    description: "Developed & trained a neural network to recommend personalized diets for individuals at risk of chronic diseases.",
+    image: "/project-ss/diet-prediction.png",
+    tech: ["Python", "MATLAB", "Excel", "LaTex"],
+    github: "https://github.com/awwab-s/Diet-Type-RecommendationSystem",
+    live: "/project-ss/diet-prediction-paper.pdf",
+    category: "ai-ml",
+    year: 2024,
+  },
+  {
+    title: "Iot Based Weather Monitoring System",
+    description: "ESP32 based IoT system to monitor weather conditions using MQTT Broker and send data to web server.",
+    image: "/project-ss/weather-monitor.png",
+    tech: ["ESP32", "Arduino IDE", "C Language", "MQTTX", "PowerBI"],
+    github: "#",
+    live: "#",
+    category: "other",
+    year: 2024,
+  },
+  {
+    title: "Game Discovery Platform",
+    description: "A web platform to discover, search, and filter video games using the RAWG Video Games Database API.",
+    image: "/project-ss/gamehub.png",
+    tech: ["React", "TypeScript", "RAWG API"],
+    github: "https://github.com/awwab-s/game-hub",
+    live: "https://gamehub-awb.vercel.app/",
+    category: "web-app",
+    year: 2023,
+  },
+  {
+    title: "Airline Booking Management System",
+    description: "An airline booking web application where users can search & book flights and admin can manage flights & schedules.",
+    image: "/project-ss/flight-booking.png",
+    tech: ["HTML", "CSS", "Javascript", "Bootstrap", "PHP", "MySQL"],
+    github: "https://github.com/awwab-s/Airline-Booking-Management-System/tree/main/DBMS%20Project",
+    live: "#",
+    category: "web-app",
+    year: 2023,
+  },
+  {
+    title: "Water Level & Temperature Monitoring System",
+    description: "STM32 based embedded system to monitor water level and temperatures with battery power optimization.",
+    image: "/project-ss/water-level-monitor.png",
+    tech: ["Keil uVision", "STM32CubeIDE", "C Language"],
+    github: "#",
+    live: "https://www.youtube.com/watch?v=hP45KTkbLyo",
+    category: "other",
+    year: 2023,
+  },
+  {
+    title: "Spray Bottle 3D Model",
+    description: "3D model of a spray bottle made using the SOLIDWORKS software.",
+    image: "/project-ss/spray-bottle.png",
+    tech: ["SOLIDWORKS", "CAD", "Assembly", "3D Printing"],
+    github: "#",
+    live: "/project-ss/spray-bottle-3dprint.jpg",
+    category: "other",
+    year: 2022,
+  },
+  {
+    title: "Hangman Game",
+    description: "Custom memory allocator with garbage collection",
+    image: "/project-ss/hangman.png",
+    tech: ["C++", "gcc", "Makefile"],
+    github: "https://github.com/awwab-s/hangman-game",
+    live: "#",
+    category: "cpp",
+    year: 2021,
   },
   // {
   //   title: "Task Management App",
@@ -146,7 +225,6 @@ export const projects: Project[] = [
   //   year: 2023,
   // },
 
-  // AI/ML Projects
   // {
   //   title: "Image Classification Model",
   //   description: "Deep learning model for medical image analysis",
@@ -157,36 +235,7 @@ export const projects: Project[] = [
   //   category: "ai-ml",
   //   year: 2024,
   // },
-  {
-    title: "E-Commerce Customer Chatbot",
-    description: "AI-powered customer assistance chatbot for product suggession built on OpenAI GPT-3.5 Turbo and MongoDB search.",
-    image: "/project-ss/chatbot.png",
-    tech: ["Python", "OpenAI", "FastAPI", "MongoDB"],
-    github: "#",
-    live: "#",
-    category: "ai-ml",
-    year: 2025,
-  },
-  {
-    title: "GIS Crop Classification",
-    description: "Developed ML models based on Sentinel-2 satellite data to classify crop types in the Punjab region of Pakistan.",
-    image: "/project-ss/crop-classification.png",
-    tech: ["Python", "Google Earth Engine", "Sentinel-2", "Random Forest", "SVM"],
-    github: "#",
-    live: "https://www.linkedin.com/posts/awwab-s_pitb-itu-internship-activity-7261240017593753600-rvXX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh6ckQBczZFBaT6hcBRlQ8aHGPAVps4oF4",
-    category: "ai-ml",
-    year: 2024,
-  },
-  {
-    title: "Personalized Diet Recommendation System",
-    description: "Developed & trained a neural network to recommend personalized diets for individuals at risk of chronic diseases.",
-    image: "/project-ss/diet-prediction.png",
-    tech: ["Python", "MATLAB", "Excel", "LaTex"],
-    github: "https://github.com/awwab-s/Diet-Type-RecommendationSystem",
-    live: "#",
-    category: "ai-ml",
-    year: 2024,
-  },
+
   // {
   //   title: "Recommendation Engine",
   //   description: "Machine learning recommendation system",
@@ -218,17 +267,6 @@ export const projects: Project[] = [
   //   year: 2024,
   // },
 
-  // C/C++ Projects
-  {
-    title: "Hangman Game",
-    description: "Custom memory allocator with garbage collection",
-    image: "/project-ss/hangman.png",
-    tech: ["C++", "gcc", "Makefile"],
-    github: "#",
-    live: "#",
-    category: "cpp",
-    year: 2021,
-  },
   // {
   //   title: "Memory Management System",
   //   description: "Custom memory allocator with garbage collection",
@@ -280,7 +318,6 @@ export const projects: Project[] = [
   //   year: 2023,
   // },
 
-  // .NET Projects
   // {
   //   title: "Enterprise CRM System",
   //   description: "Customer relationship management platform",
@@ -332,7 +369,6 @@ export const projects: Project[] = [
   //   year: 2023,
   // },
 
-  // Game Development Projects
   // {
   //   title: "2D Platformer Game",
   //   description: "Retro-style platformer with pixel art",
@@ -383,38 +419,6 @@ export const projects: Project[] = [
   //   category: "gamedev",
   //   year: 2023,
   // },
-
-  // Miscallenous Projects
-  {
-    title: "3D Model of a Spray Bottle",
-    description: "3D model of a spray bottle",
-    image: "/project-ss/spray-bottle.png",
-    tech: ["SOLIDWORKS", "3D Modeling"],
-    github: "#",
-    live: "#",
-    category: "other",
-    year: 2022,
-  },
-  {
-    title: "Water Level & Temperature Monitoring System",
-    description: "STM32 based embedded system to monitor water level and temperatures with battery power optimization.",
-    image: "/project-ss/water-level-monitor.png",
-    tech: ["Keil uVision", "STM32CubeIDE", "C Language"],
-    github: "#",
-    live: "https://www.youtube.com/watch?v=hP45KTkbLyo",
-    category: "other",
-    year: 2023,
-  },
-  {
-    title: "Iot Based Weather Monitoring System",
-    description: "ESP32 based IoT system to monitor weather conditions using MQTT Broker and send data to web server.",
-    image: "/project-ss/weather-monitor.png",
-    tech: ["ESP32", "Arduino IDE", "C Language", "MQTTX", "PowerBI"],
-    github: "#",
-    live: "#",
-    category: "other",
-    year: 2024,
-  },
 ]
 
 export const skills: Skill[] = [
