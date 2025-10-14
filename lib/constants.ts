@@ -168,6 +168,16 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
+    title: "GIS Crop Classification",
+    description: "Developed ML models based on Sentinel-2 satellite data to classify crop types in the Punjab region of Pakistan.",
+    image: "/project-ss/crop-classification.png",
+    tech: ["Python", "Google Earth Engine", "Sentinel-2", "Random Forest", "SVM"],
+    github: "#",
+    live: "https://www.linkedin.com/posts/awwab-s_pitb-itu-internship-activity-7261240017593753600-rvXX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh6ckQBczZFBaT6hcBRlQ8aHGPAVps4oF4",
+    category: "ai-ml",
+    year: 2024,
+  },
+  {
     title: "Personalized Diet Recommendation System",
     description: "Developed & trained a neural network to recommend personalized diets for individuals at risk of chronic diseases.",
     image: "/project-ss/diet-prediction.png",
