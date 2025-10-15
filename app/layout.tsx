@@ -26,9 +26,9 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "Awwab - Portfolio",
-  description: "Created with v0 & Next.js",
-  generator: "v0.app",
+  title: "Awwab Samad",
+  // description: "Created with v0 & Next.js",
+  // generator: "v0.app",
   icons: {
     icon: "/favicon.png",
   },
