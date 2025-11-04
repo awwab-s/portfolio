@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FolderClosed , FileText } from "lucide-react";
+import { FolderClosed, FileText, ChevronDown } from "lucide-react";
 import type { Translation } from "@/types";
 import { specialties } from "@/lib/constants";
 
@@ -42,7 +42,7 @@ export function Home({ t, onNavigate }: HomeProps) {
     <section
       ref={sectionRef}
       id="home"
-      className="flex items-center justify-center pt-28 pb-16 sm:min-h-screen relative overflow-hidden"
+      className="flex items-center justify-center pt-28 pb-12 sm:min-h-screen relative"
     >
       {/* Base grid */}
       <div className="absolute inset-0 opacity-30 bg-grid-base" />
@@ -50,12 +50,12 @@ export function Home({ t, onNavigate }: HomeProps) {
       {/* Cursor reveal grid */}
       <div className="absolute inset-0 pointer-events-none mask-radial bg-grid-strong" />
 
-      <div className="container mx-auto px-4 relative z-20 ">
+      <div className="container mx-auto px-6 sm:px-8 relative z-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="order-1 md:order-2">
-              <div className="rounded-4xl mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1 sm:p-1 md:p-1.5 shadow-lg">
+              <div className="rounded-4xl mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1.25 md:p-1.5 shadow-lg">
                 <Image
                   src="/office.png"
                   alt="Awwab"
@@ -69,9 +69,7 @@ export function Home({ t, onNavigate }: HomeProps) {
             {/* Content */}
             <div className="order-2 md:order-1">
               {/* Main introduction */}
-              <p className="text-xl text-foreground mb-2">
-                {t.home.greeting}
-              </p>
+              <p className="text-xl text-foreground mb-2">{t.home.greeting}</p>
               <h1 className="inline-block text-5xl md:text-6xl font-space-grotesk font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]">
                 {t.home.awwab}
               </h1>
@@ -82,14 +80,14 @@ export function Home({ t, onNavigate }: HomeProps) {
                   <Badge
                     key={specialty}
                     variant="secondary"
-                    className="text-sm font-medium px-3 py-1 bg-primary/10 text-primary border border-primary/20"
+                    className="text-xs sm:text-sm font-medium px-3 py-1 bg-primary/10 text-primary border border-primary/20"
                   >
                     {specialty}
                   </Badge>
                 ))}
               </div>
 
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="sm:text-lg text-muted-foreground mb-8 leading-relaxed">
                 {t.home.description}
               </p>
 
@@ -120,20 +118,20 @@ export function Home({ t, onNavigate }: HomeProps) {
               </div> */}
 
               {/* CTA Buttons */}
-              <div className="flex gap-4 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Button
                   size="lg"
                   onClick={() => onNavigate("projects")}
-                  className="cursor-pointer flex-initial min-w-0 hover:scale-105 transition-all duration-300 ease-in-out"
+                  className="cursor-pointer flex-initial hover:scale-105 transition-all duration-300 ease-in-out text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
                 >
-                  <FolderClosed  className="w-5 h-5 mr-2" />
+                  <FolderClosed className="w-5 h-5 mr-2" />
                   <span className="whitespace-nowrap">{t.home.viewWork}</span>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
                   size="lg"
-                  className="cursor-pointer flex-initial min-w-0 hover:scale-105 transition-all duration-300 ease-in-out"
+                  className="cursor-pointer flex-initial hover:scale-105 transition-all duration-300 ease-in-out text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
                 >
                   <a
                     href="/resume.pdf"
@@ -148,6 +146,10 @@ export function Home({ t, onNavigate }: HomeProps) {
                 </Button>
               </div>
             </div>
+          </div>
+          {/* Scroll Down Indicator */}
+          <div className="flex flex-col items-center mt-8 md:mt-4 lg:mt-12 text-muted-foreground animate-bounce">
+            <ChevronDown className="w-6 h-6" />
           </div>
         </div>
       </div>

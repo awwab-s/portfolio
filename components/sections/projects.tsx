@@ -74,26 +74,26 @@ export function Projects({ t }: ProjectsProps) {
   const hasMoreProjects = filteredProjects.length > projectsToShow;
 
   return (
-    <section id="projects" className="border-t py-20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="border-t py-16 sm:py-20">
+      <div className="container mx-auto px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 font-space-grotesk">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
               {t.projects.title}
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="sm:text-lg text-muted-foreground mb-8">
               {t.projects.subtitle}
             </p>
 
             {/* Category Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
               <Button
                 variant={selectedCategory === "all" ? "default" : "outline"}
                 onClick={() => setSelectedCategory("all")}
-                className="cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
+                className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105"
               >
                 All
-                <Badge variant="secondary" className="ml-2 text-xs">
+                <Badge variant="secondary" className="ml-1 sm:ml-2 text-xs px-1.5 sm:px-2">
                   {projects.length}
                 </Badge>
               </Button>
@@ -106,10 +106,10 @@ export function Projects({ t }: ProjectsProps) {
                   onClick={() =>
                     setSelectedCategory(category.id as ProjectCategory)
                   }
-                  className="cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
+                  className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105"
                 >
                   {category.name}
-                  <Badge variant="secondary" className="ml-2 text-xs">
+                  <Badge variant="secondary" className="ml-1 sm:ml-2 text-xs px-1.5 sm:px-2">
                     {category.count}
                   </Badge>
                 </Button>

@@ -10,6 +10,17 @@ interface SkillsProps {
   isRTL: boolean;
 }
 
+function responsiveScale(scale?: string, subtract = 20) {
+  // Parse numeric value from class like "scale-90"
+  const match = scale?.match(/scale-(\d+)/);
+  const num = match ? parseInt(match[1]) : 100;
+
+  // Subtract but don’t go below 50 for safety
+  const smaller = Math.max(num - subtract, 50);
+
+  return `scale-${smaller} sm:scale-${num}`;
+}
+
 export function Skills({ t, isRTL }: SkillsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -49,12 +60,12 @@ export function Skills({ t, isRTL }: SkillsProps) {
   }, [isRTL]);
 
   return (
-    <section id="skills" className="pt-20 pb-4 border-t">
-      <div className="mb-8 text-center px-4">
-        <h2 className="text-4xl font-bold mb-4 font-space-grotesk">
+    <section id="skills" className="py-16 sm:pt-20 pb-4 border-t">
+      <div className="mb-8 text-center px-6 sm:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
           {t.skills.title}
         </h2>
-        <p className="text-lg text-muted-foreground">{t.skills.subtitle}</p>
+        <p className="sm:text-lg text-muted-foreground">{t.skills.subtitle}</p>
       </div>
 
       <div className="relative overflow-hidden w-full" dir="ltr">
@@ -76,10 +87,12 @@ export function Skills({ t, isRTL }: SkillsProps) {
                     alt={skill.name}
                     width={96}
                     height={96}
-                    className={`w-24 h-24 object-contain ${skill.scale || ""}`}
+                    className={`w-24 h-24 object-contain ${skill.smscale || "scale-90"} sm:${skill.scale || "scale-100"}`}
                   />
                 </div>
-                <p className="text-center text-md font-medium mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[128px] mx-auto truncate">
+                <p
+                  className={`text-center text-md font-medium mt-3 max-w-[128px] mx-auto truncate transition-opacity duration-300 opacity-100 lg:opacity-0 lg:group-hover:opacity-100`}
+                >
                   {skill.name}
                 </p>
               </div>

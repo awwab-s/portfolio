@@ -1,7 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Poppins, Space_Grotesk, Noto_Sans_Arabic } from "next/font/google";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner"
 import "./globals.css";
 
 const poppins = Poppins({
@@ -46,7 +46,7 @@ export default function RootLayout({
     >
       <body>
         {children}
-        <Toaster />
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   );

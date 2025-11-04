@@ -3,7 +3,7 @@
 import { useLanguage } from "@/hooks/use-language";
 import { useTheme } from "@/hooks/use-theme";
 import { translations } from "@/lib/translations";
-import { Header } from "@/components/header";
+import { Header } from "@/components/sections/header";
 import { Home } from "@/components/sections/home";
 import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
@@ -15,7 +15,7 @@ export default function Portfolio() {
   const { language, setLanguage } = useLanguage();
   const { isDark, toggleTheme } = useTheme();
 
-  const isRTL = language === "ar" || language === "ur";
+  const isRTL = language === "ar" || language === "ur" || language === "fa";
   const t = translations[language];
 
   const scrollToSection = (sectionId: string) => {
@@ -37,7 +37,7 @@ export default function Portfolio() {
         onNavigate={scrollToSection}
       />
       <Home t={t} onNavigate={scrollToSection} />
-      <About t={t} onNavigate={scrollToSection} />
+      <About t={t} onNavigate={scrollToSection} isRTL={isRTL} />
       <Projects t={t} />
       <Skills t={t} isRTL={isRTL} />
       <Contact t={t} isRTL={isRTL} />

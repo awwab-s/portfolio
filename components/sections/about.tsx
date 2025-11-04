@@ -11,9 +11,10 @@ import { TimelineCard } from "../timeline-card";
 interface AboutProps {
   t: Translation;
   onNavigate: (section: string) => void;
+  isRTL: boolean;
 }
 
-export function About({ t, onNavigate }: AboutProps) {
+export function About({ t, onNavigate, isRTL }: AboutProps) {
   const [activeTab, setActiveTab] = useState<"education" | "experience">(
     "education"
   );
@@ -28,8 +29,8 @@ export function About({ t, onNavigate }: AboutProps) {
         ? filteredData
         : filteredData.slice(0, 3)
       : showAllExperience
-      ? filteredData
-      : filteredData.slice(0, 3);
+        ? filteredData
+        : filteredData.slice(0, 3);
 
   const hasMoreItems = filteredData.length > 3;
   const showingAll =
@@ -53,14 +54,16 @@ export function About({ t, onNavigate }: AboutProps) {
   };
 
   return (
-    <section id="about" className="py-20 border-t">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-16 sm:py-20 border-t">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 font-space-grotesk">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
               {t.about.title}
             </h2>
-            <p className="text-lg text-muted-foreground">{t.about.subtitle}</p>
+            <p className="sm:text-lg text-muted-foreground">
+              {t.about.subtitle}
+            </p>
           </div>
 
           {/* Toggle Buttons */}
@@ -85,7 +88,7 @@ export function About({ t, onNavigate }: AboutProps) {
                     setActiveTab(key as "education" | "experience")
                   }
                   size="lg"
-                  className="cursor-pointer gap-3 text-lg transition-colors duration-300 ease-in-out"
+                  className="cursor-pointer gap-2 sm:gap-3 text-base transition-colors duration-300 ease-in-out"
                 >
                   <Icon className="!w-6 !h-6" />
                   {label}
@@ -101,23 +104,23 @@ export function About({ t, onNavigate }: AboutProps) {
             <div className="absolute left-6 transform -translate-x-1/2 border top-0 bottom-0"></div>
 
             {/* Timeline Items */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               {displayedData.map((item, index) => (
                 <div key={index} className="relative flex items-start">
                   {/* Timeline Dot */}
                   {/* <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 mt-2"></div> */}
-                  <div className="absolute left-6 transform -translate-x-1/2 w-14 h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10">
+                  <div className="absolute left-6 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10">
                     <Image
                       src={item.logo || "/placeholder.svg"}
                       alt={item.institution}
                       width={48}
                       height={48}
-                      className="w-10 h-10 object-contain rounded-full"
+                      className="w-9 h-9 sm:w-10 sm:h-10 object-contain rounded-full"
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="ml-16 w-full">
+                  <div className="ml-16 w-full animate-fadeSlideRight">
                     <TimelineCard item={item} />
                   </div>
                 </div>
@@ -134,6 +137,17 @@ export function About({ t, onNavigate }: AboutProps) {
             <div className="space-y-8">
               {displayedData.map((item, index) => {
                 const position = getItemPosition(index);
+                let animationClass =
+                  position === "left"
+                    ? "animate-fadeInLeft"
+                    : "animate-fadeInRight";
+                if (isRTL) {
+                  animationClass =
+                    animationClass === "animate-fadeInLeft"
+                      ? "animate-fadeInRight"
+                      : "animate-fadeInLeft";
+                }
+
                 return (
                   <div key={index} className="relative">
                     {/* Timeline Dot */}
@@ -152,7 +166,7 @@ export function About({ t, onNavigate }: AboutProps) {
                       {position === "left" ? (
                         <>
                           {/* Left side card */}
-                          <div className="w-1/2 pe-12">
+                          <div className={`w-1/2 pe-12 ${animationClass}`}>
                             <TimelineCard item={item} />
                           </div>
                           {/* Empty right side */}
@@ -163,7 +177,7 @@ export function About({ t, onNavigate }: AboutProps) {
                           {/* Empty left side */}
                           <div className="w-1/2"></div>
                           {/* Right side card */}
-                          <div className="w-1/2 ps-12">
+                          <div className={`w-1/2 ps-12 ${animationClass}`}>
                             <TimelineCard item={item} />
                           </div>
                         </>

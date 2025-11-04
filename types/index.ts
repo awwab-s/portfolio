@@ -23,6 +23,7 @@ export interface Skill {
   name: string
   logo: string
   scale?: string
+  smscale?: string
 }
 
 export interface Translation {
@@ -78,7 +79,7 @@ export interface Translation {
   }
 }
 
-export type Language = "en" | "ar" | "ur" | "fr" | "es"
+export type Language = "en" | "ar" | "ur" | "fr" | "es" | "fa"
 export type ProjectCategory = "web-app" | "ai-ml" | "cpp" | "other"
 
 export interface LanguageOption {

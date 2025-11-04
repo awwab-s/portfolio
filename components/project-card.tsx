@@ -85,7 +85,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
           >
             <Link href={project.github} target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" />
-              <span className="whitespace-nowrap">{t.projects.viewCode}</span>
+              <span className="whitespace-nowrap truncate">{t.projects.viewCode}</span>
             </Link>
           </Button>
           <Button

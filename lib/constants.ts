@@ -424,16 +424,16 @@ export const projects: Project[] = [
 export const skills: Skill[] = [
   { name: "HTML", logo: "/logos/html.svg" },
   { name: "CSS", logo: "/logos/css.svg" },
-  { name: "JavaScript", logo: "/logos/javascript.svg", scale: "scale-90" },
+  { name: "JavaScript", logo: "/logos/javascript.svg", scale: "scale-90", smscale: "scale-80" },
   { name: "React", logo: "/logos/react.svg" },
   { name: "Next.js", logo: "/logos/nextjs.svg" },
-  { name: "TypeScript", logo: "/logos/typescript.svg", scale: "scale-90" },
+  { name: "TypeScript", logo: "/logos/typescript.svg", scale: "scale-90",  },
   { name: "Tailwind CSS", logo: "/logos/tailwindcss.svg" },
   { name: "Node.js", logo: "/logos/nodejs.svg" },
   // { name: "Express.js", logo: "/logos/express.svg" },
   // { name: "REST APIs", logo: "/logos/api.png" },
   // { name: "GraphQL", logo: "/logos/graphql.png" },
-  { name: "MySQL", logo: "/logos/mysql.svg", scale: "scale-90" },
+  { name: "MySQL", logo: "/logos/mysql.svg", scale: "scale-90", smscale: "scale-80" },
   { name: "MongoDB", logo: "/logos/mongodb.svg" },
   // { name: "PostgreSQL", logo: "/logos/postgresql.png" },
   { name: "Firebase", logo: "/logos/firebase.svg" },
@@ -441,11 +441,11 @@ export const skills: Skill[] = [
   { name: "Jupyter", logo: "/logos/jupyter.svg" },
   // { name: "TensorFlow", logo: "/logos/tensorflow.png" },
   { name: "PyTorch", logo: "/logos/pytorch.svg" },
-  { name: "Scikit-learn", logo: "/logos/scikit-learn.svg", scale: "scale-110" },
+  { name: "Scikit-learn", logo: "/logos/scikit-learn.svg", scale: "scale-110", smscale: "scale-100" },
   { name: "OpenCV", logo: "/logos/opencv.svg" },
   // // { name: "NLP", logo: "/logos/nlp.png" },
-  { name: "Matlab", logo: "/logos/matlab.svg", scale: "scale-110" },
-  { name: "VS Code", logo: "/logos/vscode.svg", scale: "scale-90" },
+  { name: "Matlab", logo: "/logos/matlab.svg", scale: "scale-110", smscale: "scale-100" },
+  { name: "VS Code", logo: "/logos/vscode.svg", scale: "scale-90", smscale: "scale-80" },
   { name: "Git", logo: "/logos/git.svg" },
   { name: "Postman", logo: "/logos/postman.svg" },
   { name: "C/C++", logo: "/logos/cpp.svg" },
@@ -475,9 +475,10 @@ export const skills: Skill[] = [
 export const languageOptions: LanguageOption[] = [
   { code: "en", name: "English", nativeName: "English", flag: "🇺🇸" },
   { code: "ur", name: "Urdu", nativeName: "اردو", flag: "🇵🇰" },
+  { code: "ar", name: "Arabic", nativeName: "العربية", flag: "🇸🇦" },
   { code: "es", name: "Spanish", nativeName: "Español", flag: "🇪🇸" },
   { code: "fr", name: "French", nativeName: "Français", flag: "🇫🇷" },
-  { code: "ar", name: "Arabic", nativeName: "العربية", flag: "🇸🇦" },
+  { code: "fa", name: "Farsi", nativeName: "فارسی", flag: "🇮🇷" },
 ]
 
 export const contactInfo = {
@@ -487,6 +488,7 @@ export const contactInfo = {
   github: "https://github.com/awwab-s",
   linkedin: "https://www.linkedin.com/in/awwab-s/",
   instagram: "https://www.instagram.com/system.adm1n/",
+  discord: "systemvv #9778",
 }
 
 export const projectCategories: Record<ProjectCategory, CategoryOption> = {
@@ -517,5 +519,6 @@ export const socialLinks = [
   { name: "GitHub", url: "https://github.com/awwab-s", icon: "github" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/awwab-s/", icon: "linkedin" },
   // { name: "Twitter", url: "#", icon: "twitter" },
-  { name: "Instagram", url: "https://www.instagram.com/system.adm1n/", icon: "instagram" },
+  // { name: "Instagram", url: "https://www.instagram.com/system.adm1n/", icon: "instagram" },
+  { name: "Discord", url: "#", icon: "discord" },
 ]

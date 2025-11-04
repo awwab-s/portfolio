@@ -15,7 +15,7 @@ export function useLanguage() {
 
   useEffect(() => {
     localStorage.setItem("language", language)
-    document.documentElement.dir = language === "ar" || language === "ur" ? "rtl" : "ltr"
+    document.documentElement.dir = language === "ar" || language === "ur" || language === "fa" ? "rtl" : "ltr"
     document.documentElement.lang = language
   }, [language])
 

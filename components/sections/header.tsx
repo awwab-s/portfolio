@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import type { Language, Translation } from "@/types";
-import { LanguageSelector } from "./language-selector";
-import { ThemeToggle } from "./theme-toggle";
+import { LanguageSelector } from "../language-selector";
+import { ThemeToggle } from "../theme-toggle";
 
 interface HeaderProps {
   t: Translation;
@@ -33,11 +33,11 @@ export function Header({
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto p-4">
         <div className="flex items-center justify-between">
           <div
             className="
-              text-2xl font-bold cursor-pointer font-space-grotesk
+              text-2xl font-bold px-3 cursor-pointer font-space-grotesk
               bg-gradient-to-r rtl:bg-gradient-to-l from-blue-500 to-purple-500 bg-clip-text 
               text-primary hover:text-transparent
               transition-all duration-400 ease-in-out
@@ -62,7 +62,7 @@ export function Header({
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <LanguageSelector
               currentLanguage={language}
               onLanguageChange={onLanguageChange}

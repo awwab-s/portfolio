@@ -14,8 +14,9 @@ import {
   Globe,
   Instagram,
 } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
+import { toast } from "sonner";
 import type { Translation } from "@/types";
-
 import { contactInfo } from "@/lib/constants";
 import { handleContactSubmit } from "@/lib/email";
 
@@ -25,36 +26,43 @@ interface ContactProps {
 }
 
 export function Contact({ t, isRTL }: ContactProps) {
+  const handleDiscordCopy = () => {
+    navigator.clipboard.writeText(contactInfo.discord)
+    toast.success(`Discord username "${contactInfo.discord}" copied!`, {
+      duration: 2000,
+    })
+  }
+
   return (
-    <section id="contact" className="border-t py-20">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="border-t py-16 sm:py-20">
+      <div className="container mx-auto px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl text-primary font-bold mb-4 font-space-grotesk">
+            <h2 className="text-3xl sm:text-4xl text-primary font-bold mb-4 font-space-grotesk">
               {t.contact.title}
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="sm:text-lg text-muted-foreground">
               {t.contact.subtitle}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Contact Info */}
-              <Card className="bg-background backdrop-blur-sm border shadow-sm">
-                <CardHeader>
-                  <CardTitle className="text-xl">
+              <Card className="bg-background backdrop-blur-sm border shadow-sm py-4 sm:py-6">
+                <CardHeader className="px-4 sm:px-6">
+                  <CardTitle className="text-lg sm:text-xl">
                     {t.contact.contactInfo}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 text-sm sm:text-base px-4 sm:px-6">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
                     <span>{contactInfo.email}</span>
                   </div>
-                  <div className="flex items-center space-x-3">
+                  {/* <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
                     <span>{contactInfo.phone}</span>
-                  </div>
+                  </div> */}
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-primary" />
                     <span>{contactInfo.location}</span>
@@ -62,29 +70,29 @@ export function Contact({ t, isRTL }: ContactProps) {
                   <div className="flex items-center space-x-3">
                     <Globe className="w-5 h-5 text-primary" />
                     <Link
-                      href="https://awwab.vercel.app"
+                      href="https://awwabsamad.vercel.app"
                       className="hover:text-hover transition-color ease-in-out duration-200 underline-offset-2 hover:underline"
                     >
-                      awwab.vercel.app
+                      awwabsamad.vercel.app
                     </Link>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Socials */}
-              <Card className="bg-background backdrop-blur-sm border shadow-sm">
-                <CardHeader>
-                  <CardTitle className="text-xl">
+              <Card className="bg-background backdrop-blur-sm border shadow-sm py-4 sm:py-6">
+                <CardHeader className="px-4 sm:px-6">
+                  <CardTitle className="text-lg sm:text-xl">
                     {t.contact.followMe}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex space-x-4">
+                <CardContent className="px-4 sm:px-6">
+                  <div className="flex space-x-3 sm:space-x-4 text-sm sm:text-base">
                     <Button
                       variant="outline"
                       size="icon"
                       asChild
-                      className="cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out bg-transparent"
+                      className="cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out bg-transparent"
                     >
                       <Link
                         href={contactInfo.github}
@@ -98,7 +106,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                       variant="outline"
                       size="icon"
                       asChild
-                      className="cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out bg-transparent"
+                      className="cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out bg-transparent"
                     >
                       <Link
                         href={contactInfo.linkedin}
@@ -108,11 +116,11 @@ export function Contact({ t, isRTL }: ContactProps) {
                         <Linkedin className="w-4 h-4" />
                       </Link>
                     </Button>
-                    <Button
+                    {/* <Button
                       variant="outline"
                       size="icon"
                       asChild
-                      className="cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out bg-transparent"
+                      className="cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out bg-transparent"
                     >
                       <Link
                         href={contactInfo.instagram}
@@ -121,6 +129,15 @@ export function Contact({ t, isRTL }: ContactProps) {
                       >
                         <Instagram className="w-4 h-4" />
                       </Link>
+                    </Button> */}
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={handleDiscordCopy}
+                      className="cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out bg-transparent"
+                      title={`Click to copy Discord username: ${contactInfo.discord}`}
+                    >
+                      <FaDiscord className="w-4 h-4" />
                     </Button>
                   </div>
                 </CardContent>
@@ -128,13 +145,13 @@ export function Contact({ t, isRTL }: ContactProps) {
             </div>
             <div>
               {/* Contact Form */}
-              <Card className="bg-background backdrop-blur-sm border shadow-sm h-full">
-                <CardHeader>
-                  <CardTitle className="text-xl">
+              <Card className="bg-background backdrop-blur-sm border shadow-sm h-full py-4 sm:py-6">
+                <CardHeader className="px-4 sm:px-6">
+                  <CardTitle className="text-lg sm:text-xl">
                     {t.contact.sendMessage}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="pt-2">
+                <CardContent className="pt-0 sm:pt-2 px-4 sm:px-6">
                   <form className="space-y-6" onSubmit={handleContactSubmit}>
                     <div>
                       <Label htmlFor="name" className="mb-2 block">
@@ -145,6 +162,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                         name="name"
                         placeholder={t.contact.name}
                         required
+                        className="placeholder:text-sm"
                       />
                     </div>
                     <div>
@@ -157,6 +175,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                         type="email"
                         placeholder={t.contact.email}
                         required
+                        className="placeholder:text-sm"
                       />
                     </div>
                     <div>
@@ -169,6 +188,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                         placeholder={t.contact.message}
                         rows={5}
                         required
+                        className="placeholder:text-sm"
                       />
                     </div>
                     <Button
