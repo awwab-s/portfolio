@@ -81,13 +81,13 @@ export function Skills({ t, isRTL }: SkillsProps) {
                 key={`${skill.name}-${index}`}
                 className="flex-shrink-0 group"
               >
-                <div className="w-32 h-32 rounded-full bg-white shadow-lg flex items-center justify-center hover:shadow-xl transition-transform duration-300 ease-in-out hover:scale-110 group-hover:-translate-y-2">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-lg flex items-center justify-center hover:shadow-xl transition-transform duration-300 ease-in-out hover:scale-110 group-hover:-translate-y-2">
                   <Image
                     src={skill.logo || "/placeholder.svg"}
                     alt={skill.name}
                     width={96}
                     height={96}
-                    className={`w-24 h-24 object-contain ${skill.smscale || "scale-90"} sm:${skill.scale || "scale-100"}`}
+                    className={`w-16 h-16 md:w-24 md:h-24 object-contain ${skill.smscale || "scale-90"} sm:${skill.scale || "scale-100"}`}
                   />
                 </div>
                 <p
