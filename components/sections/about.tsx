@@ -120,7 +120,7 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="ml-16 w-full animate-fadeSlideRight">
+                  <div className="ml-16 w-full animate-fade-slide-right">
                     <TimelineCard item={item} />
                   </div>
                 </div>
@@ -139,13 +139,13 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                 const position = getItemPosition(index);
                 let animationClass =
                   position === "left"
-                    ? "animate-fadeInLeft"
-                    : "animate-fadeInRight";
+                    ? "animate-fade-slide-left"
+                    : "animate-fade-slide-right";
                 if (isRTL) {
                   animationClass =
-                    animationClass === "animate-fadeInLeft"
-                      ? "animate-fadeInRight"
-                      : "animate-fadeInLeft";
+                    animationClass === "animate-fade-slide-left"
+                      ? "animate-fade-slide-right"
+                      : "animate-fade-slide-left";
                 }
 
                 return (
