@@ -115,6 +115,10 @@ export function Home({ t, onNavigate }: HomeProps) {
                 className="inline-block text-5xl md:text-6xl font-space-grotesk font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]"
               >
                 {t.home.awwab}
+                <span
+                  aria-hidden="true"
+                  className="typing-cursor inline-block w-[5px] h-[0.85em] ms-1 mb-3 bg-gradient-to-b from-blue-600 to-purple-600 align-middle"
+                />
               </motion.h1>
 
               {/* Specialty tags */}

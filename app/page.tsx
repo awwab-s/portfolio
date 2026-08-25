@@ -3,6 +3,7 @@
 import { useLanguage } from "@/hooks/use-language";
 import { useTheme } from "@/hooks/use-theme";
 import { translations } from "@/lib/translations";
+import { CustomCursor } from "@/components/custom-cursor";
 import { Header } from "@/components/sections/header";
 import { Home } from "@/components/sections/home";
 import { About } from "@/components/sections/about";
@@ -37,11 +38,13 @@ export default function Portfolio() {
         onNavigate={scrollToSection}
       />
       <Home t={t} onNavigate={scrollToSection} />
-      <About t={t} onNavigate={scrollToSection} isRTL={isRTL} />
+      <About t={t} isRTL={isRTL} />
       <Projects t={t} />
       <Skills t={t} isRTL={isRTL} />
       <Contact t={t} isRTL={isRTL} />
       <Footer t={t} onNavigate={scrollToSection} />
+
+      <CustomCursor />
     </div>
   );
 }

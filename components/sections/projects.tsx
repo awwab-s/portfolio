@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +20,9 @@ export function Projects({ t }: ProjectsProps) {
   >("all");
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [mounted, setMounted] = useState(false); // <-- for client-only rendering
+
+  const prevCategoryRef = useRef(selectedCategory);
+  const revealedBaselineRef = useRef(0);
 
   // run after mount
   useEffect(() => {
@@ -74,6 +77,17 @@ export function Projects({ t }: ProjectsProps) {
     : filteredProjects.slice(0, projectsToShow);
 
   const hasMoreProjects = filteredProjects.length > projectsToShow;
+
+  // reset the baseline so everything staggers in from zero again.
+  if (prevCategoryRef.current !== selectedCategory) {
+    prevCategoryRef.current = selectedCategory;
+    revealedBaselineRef.current = 0;
+  }
+
+  useEffect(() => {
+    // only cards past this point count as "new" and get staggered.
+    revealedBaselineRef.current = displayedProjects.length;
+  }, [displayedProjects]);
 
   return (
     <section id="projects" className="border-t py-16 sm:py-20">
@@ -134,26 +148,32 @@ export function Projects({ t }: ProjectsProps) {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               <AnimatePresence mode="popLayout">
-                {displayedProjects.map((project, index) => (
-                  <motion.div
-                    key={project.title}
-                    layout
-                    initial={{ opacity: 0, y: 28, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    // exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{
-                      duration: 0.45,
-                      ease: [0.21, 0.47, 0.32, 0.98],
-                      delay: Math.min(index, 8) * 0.1,
-                    }}
-                  >
-                    <ProjectCard project={project} t={t} />
-                  </motion.div>
-                ))}
+                {displayedProjects.map((project, index) => {
+                  const newBatchIndex = Math.max(
+                    0,
+                    index - revealedBaselineRef.current,
+                  );
+                  return (
+                    <motion.div
+                      key={project.title}
+                      layout
+                      initial={{ opacity: 0, y: 28, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        duration: 0.45,
+                        ease: [0.21, 0.47, 0.32, 0.98],
+                        delay: Math.min(newBatchIndex, 8) * 0.15,
+                      }}
+                    >
+                      <ProjectCard project={project} t={t} />
+                    </motion.div>
+                  );
+                })}
               </AnimatePresence>
             </motion.div>
           )}
 
+          {/* Show More / Show Less Button */}
           {hasMoreProjects && (
             <ScrollReveal className="flex justify-center mt-8" amount={0.5}>
               <Button

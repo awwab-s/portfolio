@@ -12,11 +12,10 @@ import { ScrollReveal } from "../scroll-reveal";
 
 interface AboutProps {
   t: Translation;
-  onNavigate: (section: string) => void;
   isRTL: boolean;
 }
 
-export function About({ t, onNavigate, isRTL }: AboutProps) {
+export function About({ t, isRTL }: AboutProps) {
   const [activeTab, setActiveTab] = useState<"education" | "experience">(
     "education",
   );
@@ -210,6 +209,7 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
             </div>
           </div>
 
+          {/* Show More / Show Less Button */}
           {hasMoreItems && (
             <ScrollReveal
               className="flex justify-center mt-8 relative"

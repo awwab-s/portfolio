@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Translation } from "@/types";
@@ -12,54 +11,9 @@ interface SkillsProps {
   isRTL: boolean;
 }
 
-function responsiveScale(scale?: string, subtract = 20) {
-  // Parse numeric value from class like "scale-90"
-  const match = scale?.match(/scale-(\d+)/);
-  const num = match ? parseInt(match[1]) : 100;
-
-  // Subtract but don’t go below 50 for safety
-  const smaller = Math.max(num - subtract, 50);
-
-  return `scale-${smaller} sm:scale-${num}`;
-}
-
 export function Skills({ t, isRTL }: SkillsProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   // Duplicate skills array to create seamless infinite scroll
   const duplicatedSkills = [...skills, ...skills];
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Get all skill items
-    const skillItems = Array.from(container.children).slice(
-      0,
-      skills.length,
-    ) as HTMLElement[];
-    const totalWidth = skillItems.reduce((acc, el) => acc + el.offsetWidth, 0);
-
-    // Initialize translateX depending on direction
-    let translateX = isRTL ? -totalWidth : 0;
-    const speed = 1;
-    let animationFrame: number;
-
-    const animate = () => {
-      translateX += isRTL ? speed : -speed;
-
-      // Reset when first set completely off-screen
-      if (isRTL && translateX >= 0) translateX = -totalWidth;
-      if (!isRTL && Math.abs(translateX) >= totalWidth) translateX = 0;
-
-      container.style.transform = `translateX(${translateX}px)`;
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isRTL]);
 
   return (
     <section id="skills" className="py-16 sm:pt-20 pb-4 border-t">
@@ -75,12 +29,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
         dir="ltr"
       >
         <div className="py-8">
-          <div
-            ref={containerRef}
-            className={`flex gap-12 will-change-transform w-fit ${
-              isRTL ? "flex-row-reverse" : ""
-            }`}
-          >
+          <div data-rtl={isRTL} className="marquee-track flex gap-12 w-fit">
             {duplicatedSkills.map((skill, index) => (
               <div
                 key={`${skill.name}-${index}`}
