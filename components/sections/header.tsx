@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import type { Language, Translation } from "@/types";
@@ -24,7 +25,14 @@ export function Header({
   onThemeToggle,
   onNavigate,
 }: HeaderProps) {
+  const [activeSection, setActiveSection] = useState<string>("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const handleNavigate = (section: string) => {
     onNavigate(section);
@@ -33,8 +41,14 @@ export function Header({
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
+      {/* Scroll progress indicator */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-500 to-purple-500 origin-left rtl:origin-right"
+        style={{ scaleX }}
+      />
       <div className="container mx-auto p-4">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <div
             className="
               text-2xl font-bold px-3 cursor-pointer font-space-grotesk

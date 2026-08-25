@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import type { Translation } from "@/types";
 import { contactInfo } from "@/lib/constants";
 import { handleContactSubmit } from "@/lib/email";
+import { ScrollReveal } from "../scroll-reveal";
 
 interface ContactProps {
   t: Translation;
@@ -37,16 +38,17 @@ export function Contact({ t, isRTL }: ContactProps) {
     <section id="contact" className="border-t py-16 sm:py-20">
       <div className="container mx-auto px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-12" amount={0.5}>
             <h2 className="text-3xl sm:text-4xl text-primary font-bold mb-4 font-space-grotesk">
               {t.contact.title}
             </h2>
             <p className="sm:text-lg text-muted-foreground">
               {t.contact.subtitle}
             </p>
-          </div>
+          </ScrollReveal>
+
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6 sm:space-y-8">
+            <ScrollReveal direction="left" className="space-y-6 sm:space-y-8" amount={0.5}>
               {/* Contact Info */}
               <Card className="bg-background backdrop-blur-sm border shadow-sm py-4 sm:py-6">
                 <CardHeader className="px-4 sm:px-6">
@@ -142,8 +144,9 @@ export function Contact({ t, isRTL }: ContactProps) {
                   </div>
                 </CardContent>
               </Card>
-            </div>
-            <div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" amount={0.5}>
               {/* Contact Form */}
               <Card className="bg-background backdrop-blur-sm border shadow-sm h-full py-4 sm:py-6">
                 <CardHeader className="px-4 sm:px-6">
@@ -207,7 +210,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                   </form>
                 </CardContent>
               </Card>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

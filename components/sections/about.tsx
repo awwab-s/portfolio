@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, ChevronDown } from "lucide-react";
 import type { Translation } from "@/types";
 import { timelineData } from "@/lib/constants";
 import { TimelineCard } from "../timeline-card";
+import { ScrollReveal } from "../scroll-reveal";
 
 interface AboutProps {
   t: Translation;
@@ -16,7 +18,7 @@ interface AboutProps {
 
 export function About({ t, onNavigate, isRTL }: AboutProps) {
   const [activeTab, setActiveTab] = useState<"education" | "experience">(
-    "education"
+    "education",
   );
   const [showAllEducation, setShowAllEducation] = useState(false);
   const [showAllExperience, setShowAllExperience] = useState(false);
@@ -57,17 +59,17 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
     <section id="about" className="py-16 sm:py-20 border-t">
       <div className="container mx-auto px-6 sm:px-8 lg:px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-12" amount={0.5}>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
               {t.about.title}
             </h2>
             <p className="sm:text-lg text-muted-foreground">
               {t.about.subtitle}
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Toggle Buttons */}
-          <div className="flex justify-center mb-12">
+          <ScrollReveal className="flex justify-center mb-12" amount={0.5}>
             <div className="flex bg-background/80 backdrop-blur-sm rounded-lg p-1 border">
               {[
                 {
@@ -95,7 +97,7 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                 </Button>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Mobile Timeline (Single Column) */}
           <div className="md:hidden relative">
@@ -109,7 +111,13 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                 <div key={index} className="relative flex items-start">
                   {/* Timeline Dot */}
                   {/* <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 mt-2"></div> */}
-                  <div className="absolute left-6 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10">
+                  <motion.div
+                    className="absolute left-6 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
                     <Image
                       src={item.logo || "/placeholder.svg"}
                       alt={item.institution}
@@ -117,12 +125,17 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                       height={48}
                       className="w-9 h-9 sm:w-10 sm:h-10 object-contain rounded-full"
                     />
-                  </div>
+                  </motion.div>
 
                   {/* Content */}
-                  <div className="ml-16 w-full animate-fade-slide-right">
+                  <ScrollReveal
+                    direction="right"
+                    className="ml-16 w-full"
+                    amount={0.3}
+                    isRTL={isRTL}
+                  >
                     <TimelineCard item={item} />
-                  </div>
+                  </ScrollReveal>
                 </div>
               ))}
             </div>
@@ -137,21 +150,19 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
             <div className="space-y-8">
               {displayedData.map((item, index) => {
                 const position = getItemPosition(index);
-                let animationClass =
-                  position === "left"
-                    ? "animate-fade-slide-left"
-                    : "animate-fade-slide-right";
-                if (isRTL) {
-                  animationClass =
-                    animationClass === "animate-fade-slide-left"
-                      ? "animate-fade-slide-right"
-                      : "animate-fade-slide-left";
-                }
+                let revealDirection: "left" | "right" =
+                  position === "left" ? "left" : "right";
 
                 return (
                   <div key={index} className="relative">
                     {/* Timeline Dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-14 h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10">
+                    <motion.div
+                      className="absolute left-1/2 transform -translate-x-1/2 w-14 h-14 bg-background flex items-center justify-center rounded-full border-2 overflow-hidden z-10"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
                       <Image
                         src={item.logo || "/placeholder.svg"}
                         alt={item.institution}
@@ -159,16 +170,21 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                         height={48}
                         className="w-10 h-10 object-contain rounded-full"
                       />
-                    </div>
+                    </motion.div>
 
                     {/* Card Container */}
                     <div className="flex items-center">
                       {position === "left" ? (
                         <>
                           {/* Left side card */}
-                          <div className={`w-1/2 pe-12 ${animationClass}`}>
+                          <ScrollReveal
+                            direction={revealDirection}
+                            className="w-1/2 pe-12"
+                            amount={0.3}
+                            isRTL={isRTL}
+                          >
                             <TimelineCard item={item} />
-                          </div>
+                          </ScrollReveal>
                           {/* Empty right side */}
                           <div className="w-1/2"></div>
                         </>
@@ -177,9 +193,14 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                           {/* Empty left side */}
                           <div className="w-1/2"></div>
                           {/* Right side card */}
-                          <div className={`w-1/2 ps-12 ${animationClass}`}>
+                          <ScrollReveal
+                            direction={revealDirection}
+                            className="w-1/2 ps-12"
+                            amount={0.3}
+                            isRTL={isRTL}
+                          >
                             <TimelineCard item={item} />
-                          </div>
+                          </ScrollReveal>
                         </>
                       )}
                     </div>
@@ -190,7 +211,10 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
           </div>
 
           {hasMoreItems && (
-            <div className="flex justify-center mt-8 relative">
+            <ScrollReveal
+              className="flex justify-center mt-8 relative"
+              amount={0.5}
+            >
               <Button
                 variant="outline"
                 onClick={toggleShowAll}
@@ -203,7 +227,7 @@ export function About({ t, onNavigate, isRTL }: AboutProps) {
                   }`}
                 />
               </Button>
-            </div>
+            </ScrollReveal>
           )}
         </div>
       </div>

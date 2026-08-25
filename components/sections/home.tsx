@@ -2,11 +2,28 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FolderClosed, FileText, ChevronDown } from "lucide-react";
 import type { Translation } from "@/types";
 import { specialties } from "@/lib/constants";
+
+const container: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.32, delayChildren: 0.1 },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
 
 interface HomeProps {
   t: Translation;
@@ -24,11 +41,11 @@ export function Home({ t, onNavigate }: HomeProps) {
       // update CSS variables directly (no React state updates)
       sectionRef.current.style.setProperty(
         "--mouse-x",
-        `${e.clientX - rect.left}px`
+        `${e.clientX - rect.left}px`,
       );
       sectionRef.current.style.setProperty(
         "--mouse-y",
-        `${e.clientY - rect.top}px`
+        `${e.clientY - rect.top}px`,
       );
     };
 
@@ -54,8 +71,21 @@ export function Home({ t, onNavigate }: HomeProps) {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <div className="order-1 md:order-2">
-              <div className="rounded-4xl mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1.25 md:p-1.5 shadow-lg">
+            <motion.div
+              className="order-1 md:order-2"
+              initial={{ opacity: 0, scale: 0.85, rotate: -4 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+            >
+              <motion.div
+                className="rounded-4xl mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1.25 md:p-1.5 shadow-lg"
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
                 <Image
                   src="/office.png"
                   alt="Awwab"
@@ -63,19 +93,32 @@ export function Home({ t, onNavigate }: HomeProps) {
                   height={400}
                   className="rounded-4xl w-full h-full object-cover bg-gray-100"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Content */}
-            <div className="order-2 md:order-1">
+            <motion.div
+              className="order-2 md:order-1"
+              variants={container}
+              initial="hidden"
+              animate="visible"
+            >
               {/* Main introduction */}
-              <p className="text-xl text-foreground mb-2">{t.home.greeting}</p>
-              <h1 className="inline-block text-5xl md:text-6xl font-space-grotesk font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]">
+              <motion.p
+                variants={item}
+                className="text-xl text-foreground mb-2"
+              >
+                {t.home.greeting}
+              </motion.p>
+              <motion.h1
+                variants={item}
+                className="inline-block text-5xl md:text-6xl font-space-grotesk font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]"
+              >
                 {t.home.awwab}
-              </h1>
+              </motion.h1>
 
               {/* Specialty tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <motion.div variants={item} className="flex flex-wrap gap-2 mb-6">
                 {specialties.map((specialty, index) => (
                   <Badge
                     key={specialty}
@@ -85,11 +128,15 @@ export function Home({ t, onNavigate }: HomeProps) {
                     {specialty}
                   </Badge>
                 ))}
-              </div>
+              </motion.div>
 
-              <p className="sm:text-lg text-muted-foreground mb-8 leading-relaxed">
+              {/* Description */}
+              <motion.p
+                variants={item}
+                className="sm:text-lg text-muted-foreground mb-8 leading-relaxed"
+              >
                 {t.home.description}
-              </p>
+              </motion.p>
 
               {/* Stats */}
               {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
@@ -118,7 +165,10 @@ export function Home({ t, onNavigate }: HomeProps) {
               </div> */}
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <motion.div
+                variants={item}
+                className="flex flex-wrap gap-4 justify-center md:justify-start"
+              >
                 <Button
                   size="lg"
                   onClick={() => onNavigate("projects")}
@@ -144,8 +194,8 @@ export function Home({ t, onNavigate }: HomeProps) {
                     </span>
                   </a>
                 </Button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
           {/* Scroll Down Indicator */}
           <div className="flex flex-col items-center mt-8 md:mt-4 lg:mt-12 text-muted-foreground animate-bounce">

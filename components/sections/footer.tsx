@@ -74,7 +74,7 @@ export function Footer({ t, onNavigate }: FooterProps) {
         {/* Bottom section - Copyright */}
         <div className="text-center mt-3 pt-4 border-t">
           <p className="text-muted-foreground text-xs">
-            © 2025 Awwab. {t.footer.rights}
+            © 2026 Awwab. {t.footer.rights}
           </p>
         </div>
       </div>

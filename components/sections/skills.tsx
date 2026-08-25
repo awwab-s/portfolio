@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { Translation } from "@/types";
 import { skills } from "@/lib/constants";
+import { ScrollReveal } from "../scroll-reveal";
 
 interface SkillsProps {
   t: Translation;
@@ -34,7 +36,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
     // Get all skill items
     const skillItems = Array.from(container.children).slice(
       0,
-      skills.length
+      skills.length,
     ) as HTMLElement[];
     const totalWidth = skillItems.reduce((acc, el) => acc + el.offsetWidth, 0);
 
@@ -61,14 +63,17 @@ export function Skills({ t, isRTL }: SkillsProps) {
 
   return (
     <section id="skills" className="py-16 sm:pt-20 pb-4 border-t">
-      <div className="mb-8 text-center px-6 sm:px-8">
+      <ScrollReveal className="mb-8 text-center px-6 sm:px-8" amount={0.5}>
         <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
           {t.skills.title}
         </h2>
         <p className="sm:text-lg text-muted-foreground">{t.skills.subtitle}</p>
-      </div>
+      </ScrollReveal>
 
-      <div className="relative overflow-hidden w-full" dir="ltr">
+      <div
+        className="relative overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        dir="ltr"
+      >
         <div className="py-8">
           <div
             ref={containerRef}
@@ -81,7 +86,11 @@ export function Skills({ t, isRTL }: SkillsProps) {
                 key={`${skill.name}-${index}`}
                 className="flex-shrink-0 group"
               >
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-lg flex items-center justify-center hover:shadow-xl transition-transform duration-300 ease-in-out hover:scale-110 group-hover:-translate-y-2">
+                <motion.div
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-lg flex items-center justify-center transition-shadow duration-300 ease-in-out hover:shadow-xl"
+                  whileHover={{ scale: 1.12, rotate: 4, y: -10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
                   <Image
                     src={skill.logo || "/placeholder.svg"}
                     alt={skill.name}
@@ -89,7 +98,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
                     height={96}
                     className={`w-16 h-16 md:w-24 md:h-24 object-contain ${skill.smscale || "scale-90"} sm:${skill.scale || "scale-100"}`}
                   />
-                </div>
+                </motion.div>
                 <p
                   className={`text-center text-md font-medium mt-3 max-w-[128px] mx-auto truncate transition-opacity duration-300 opacity-100 lg:opacity-0 lg:group-hover:opacity-100`}
                 >
