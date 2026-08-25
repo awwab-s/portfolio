@@ -28,11 +28,11 @@ interface ContactProps {
 
 export function Contact({ t, isRTL }: ContactProps) {
   const handleDiscordCopy = () => {
-    navigator.clipboard.writeText(contactInfo.discord)
+    navigator.clipboard.writeText(contactInfo.discord);
     toast.success(`Discord username "${contactInfo.discord}" copied!`, {
       duration: 2000,
-    })
-  }
+    });
+  };
 
   return (
     <section id="contact" className="border-t py-16 sm:py-20">
@@ -48,7 +48,12 @@ export function Contact({ t, isRTL }: ContactProps) {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <ScrollReveal direction="left" className="space-y-6 sm:space-y-8" amount={0.5}>
+            <ScrollReveal
+              direction="left"
+              className="space-y-6 sm:space-y-8"
+              amount={0.5}
+              isRTL={isRTL}
+            >
               {/* Contact Info */}
               <Card className="bg-background backdrop-blur-sm border shadow-sm py-4 sm:py-6">
                 <CardHeader className="px-4 sm:px-6">
@@ -146,7 +151,7 @@ export function Contact({ t, isRTL }: ContactProps) {
               </Card>
             </ScrollReveal>
 
-            <ScrollReveal direction="right" amount={0.5}>
+            <ScrollReveal direction="right" amount={0.5} isRTL={isRTL}>
               {/* Contact Form */}
               <Card className="bg-background backdrop-blur-sm border shadow-sm h-full py-4 sm:py-6">
                 <CardHeader className="px-4 sm:px-6">

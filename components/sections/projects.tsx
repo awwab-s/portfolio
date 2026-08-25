@@ -10,21 +10,6 @@ import { projects, projectCategories } from "@/lib/constants";
 import { ProjectCard } from "../project-card";
 import { ScrollReveal } from "../scroll-reveal";
 
-const gridContainer: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
-};
-
-const gridItem: Variants = {
-  hidden: { opacity: 0, y: 28, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] },
-  },
-};
-
 interface ProjectsProps {
   t: Translation;
 }
@@ -144,24 +129,29 @@ export function Projects({ t }: ProjectsProps) {
 
           {/* Projects Grid */}
           {mounted && (
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedCategory}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                variants={gridContainer}
-                initial="hidden"
-                animate="visible"
-              >
+            <motion.div
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              <AnimatePresence mode="popLayout">
                 {displayedProjects.map((project, index) => (
                   <motion.div
-                    key={`${selectedCategory}-${index}`}
-                    variants={gridItem}
+                    key={project.title}
+                    layout
+                    initial={{ opacity: 0, y: 28, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    // exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.21, 0.47, 0.32, 0.98],
+                      delay: Math.min(index, 8) * 0.1,
+                    }}
                   >
                     <ProjectCard project={project} t={t} />
                   </motion.div>
                 ))}
-              </motion.div>
-            </AnimatePresence>
+              </AnimatePresence>
+            </motion.div>
           )}
 
           {hasMoreProjects && (

@@ -23,9 +23,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, t }: ProjectCardProps) {
   return (
-    <Card
-      className="group will-change-transform p-0 hover:shadow-xl hover:scale-[1.05] hover:-translate-y-1 transition-all duration-200 ease-in-out bg-background backdrop-blur-sm border shadow-sm flex flex-col h-full overflow-hidden animate-fade-slide-up"
-    >
+    <Card className="group will-change-transform p-0 hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 ease-out bg-background backdrop-blur-sm border shadow-sm flex flex-col h-full overflow-hidden">
       <div className="relative overflow-hidden">
         <Image
           src={project.image || "/placeholder.svg"}
@@ -83,9 +81,15 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
             asChild
             className="cursor-pointer flex-1 min-w-0 gap-2"
           >
-            <Link href={project.github} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="w-4 h-4" />
-              <span className="whitespace-nowrap truncate">{t.projects.viewCode}</span>
+              <span className="whitespace-nowrap truncate">
+                {t.projects.viewCode}
+              </span>
             </Link>
           </Button>
           <Button

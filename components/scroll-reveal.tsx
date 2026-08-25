@@ -77,6 +77,7 @@ export function ScrollReveal({
 
   return (
     <motion.div
+      key={resolvedDirection}
       className={className}
       initial="hidden"
       whileInView="visible"

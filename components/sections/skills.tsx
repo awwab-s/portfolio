@@ -88,7 +88,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
               >
                 <motion.div
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-lg flex items-center justify-center transition-shadow duration-300 ease-in-out hover:shadow-xl"
-                  whileHover={{ scale: 1.12, rotate: 4, y: -10 }}
+                  whileHover={{ scale: 1.12, rotate: 7, y: -10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
                   <Image
