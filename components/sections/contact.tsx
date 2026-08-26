@@ -39,7 +39,7 @@ export function Contact({ t, isRTL }: ContactProps) {
       <div className="container mx-auto px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-12" amount={0.5}>
-            <h2 className="text-3xl sm:text-4xl text-primary font-bold mb-4 font-space-grotesk">
+            <h2 className="text-3xl sm:text-4xl text-primary font-bold mb-4 font-special">
               {t.contact.title}
             </h2>
             <p className="sm:text-lg text-muted-foreground">

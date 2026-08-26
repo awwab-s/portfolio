@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { FolderClosed, FileText, ChevronDown } from "lucide-react";
 import type { Translation } from "@/types";
 import { specialties } from "@/lib/constants";
+import { TypingText } from "@/components/typing-text";
 
 const container: Variants = {
   hidden: {},
@@ -112,13 +113,9 @@ export function Home({ t, onNavigate }: HomeProps) {
               </motion.p>
               <motion.h1
                 variants={item}
-                className="inline-block text-5xl md:text-6xl font-space-grotesk font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]"
+                className="inline-block text-5xl md:text-6xl font-special font-bold mb-4 bg-gradient-to-r rtl:bg-gradient-to-l from-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.3]"
               >
-                {t.home.awwab}
-                <span
-                  aria-hidden="true"
-                  className="typing-cursor inline-block w-[5px] h-[0.85em] ms-1 mb-3 bg-gradient-to-b from-blue-600 to-purple-600 align-middle"
-                />
+                <TypingText text={t.home.awwab} />
               </motion.h1>
 
               {/* Specialty tags */}

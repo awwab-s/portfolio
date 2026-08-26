@@ -51,7 +51,7 @@ export function Header({
           {/* Logo */}
           <div
             className="
-              text-2xl font-bold px-3 cursor-pointer font-space-grotesk
+              text-2xl font-bold px-3 cursor-pointer font-special
               bg-gradient-to-r rtl:bg-gradient-to-l from-blue-500 to-purple-500 bg-clip-text 
               text-primary hover:text-transparent
               transition-all duration-400 ease-in-out
@@ -67,7 +67,7 @@ export function Header({
               <button
                 key={key}
                 onClick={() => handleNavigate(key)}
-                className="relative text-foreground transition-colors duration-300 ease-in-out cursor-pointer font-medium py-2 group hover:text-hover font-space-grotesk"
+                className="relative text-foreground transition-colors duration-300 ease-in-out cursor-pointer font-medium py-2 group hover:text-hover font-special"
               >
                 <span className="relative z-10">{value}</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hover transition-all duration-300 ease-in-out group-hover:w-full"></span>
@@ -105,7 +105,7 @@ export function Header({
                 <button
                   key={key}
                   onClick={() => handleNavigate(key)}
-                  className="text-left text-foreground transition-colors duration-200 ease-in-out cursor-pointer font-medium py-2 relative group hover:text-hover font-space-grotesk"
+                  className="text-left text-foreground transition-colors duration-200 ease-in-out cursor-pointer font-medium py-2 relative group hover:text-hover font-special"
                 >
                   <div className="text-center">
                     <span className="relative z-10">{value}</span>

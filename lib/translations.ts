@@ -1,14 +1,5 @@
 import type { Translation, Language } from "@/types"
 
-export const languageFonts: Record<Language, string> = {
-  en: "var(--font-poppins)",
-  ur: "var(--font-urdu)",
-  ar: "var(--font-arabic)",
-  es: "var(--font-poppins)",
-  fa: "var(--font-arabic)",
-  fr: "var(--font-poppins)",
-}
-
 export const translations: Record<Language, Translation> = {
   en: {
     nav: {

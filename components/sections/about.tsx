@@ -59,7 +59,7 @@ export function About({ t, isRTL }: AboutProps) {
       <div className="container mx-auto px-6 sm:px-8 lg:px-4">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-12" amount={0.5}>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-special">
               {t.about.title}
             </h2>
             <p className="sm:text-lg text-muted-foreground">

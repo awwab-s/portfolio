@@ -18,7 +18,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
   return (
     <section id="skills" className="py-16 sm:pt-20 pb-4 border-t">
       <ScrollReveal className="mb-8 text-center px-6 sm:px-8" amount={0.5}>
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-space-grotesk">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-special">
           {t.skills.title}
         </h2>
         <p className="sm:text-lg text-muted-foreground">{t.skills.subtitle}</p>

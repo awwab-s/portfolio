@@ -32,7 +32,7 @@ export function Footer({ t, onNavigate }: FooterProps) {
     <footer className="border-t py-4">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-xl font-bold text-primary font-space-grotesk">
+          <div className="text-xl font-bold text-primary font-special">
             Awwab
           </div>
 
