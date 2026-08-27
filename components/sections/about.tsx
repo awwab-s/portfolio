@@ -102,7 +102,13 @@ export function About({ t, isRTL }: AboutProps) {
           <div className="md:hidden relative">
             {/* Vertical Line */}
             {/* <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30"></div> */}
-            <div className="absolute left-6 transform -translate-x-1/2 border top-0 bottom-0"></div>
+            <motion.div
+              className="absolute left-6 transform -translate-x-1/2 border top-0 bottom-0"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1.1, ease: "easeInOut" }}
+            ></motion.div>
 
             {/* Timeline Items */}
             <div className="space-y-6">
@@ -143,7 +149,13 @@ export function About({ t, isRTL }: AboutProps) {
           {/* Desktop Timeline (Two Column) */}
           <div className="hidden md:block relative">
             {/* Vertical Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 border top-0 bottom-0"></div>
+            <motion.div
+              className="absolute left-1/2 -translate-x-1/2 border top-0 bottom-0"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1.1, ease: "easeInOut" }}
+            ></motion.div>
 
             {/* Timeline Items */}
             <div className="space-y-8">

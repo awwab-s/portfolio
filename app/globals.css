@@ -78,10 +78,6 @@
 
 @theme inline {
   --font-sans: var(--font-poppins);
-  --font-space-grotesk: var(--font-space-grotesk);
-  --font-arabic: var(--font-arabic);
-  --font-urdu: var(--font-urdu);
-  --font-persian: var(--font-persian);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

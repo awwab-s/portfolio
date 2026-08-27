@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { FolderClosed, FileText, ChevronDown } from "lucide-react";
 import type { Translation } from "@/types";
 import { specialties } from "@/lib/constants";
+import { NeonGrid } from "@/components/neon-grid";
 import { TypingText } from "@/components/typing-text";
 
 const container: Variants = {
@@ -32,41 +32,12 @@ interface HomeProps {
 }
 
 export function Home({ t, onNavigate }: HomeProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-
-      // update CSS variables directly (no React state updates)
-      sectionRef.current.style.setProperty(
-        "--mouse-x",
-        `${e.clientX - rect.left}px`,
-      );
-      sectionRef.current.style.setProperty(
-        "--mouse-y",
-        `${e.clientY - rect.top}px`,
-      );
-    };
-
-    const section = sectionRef.current;
-    section?.addEventListener("mousemove", handleMouseMove);
-
-    return () => section?.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="home"
       className="flex items-center justify-center pt-28 pb-12 sm:min-h-screen relative"
     >
-      {/* Base grid */}
-      <div className="absolute inset-0 opacity-30 bg-grid-base" />
-
-      {/* Cursor reveal grid */}
-      <div className="absolute inset-0 pointer-events-none mask-radial bg-grid-strong" />
+      <NeonGrid />
 
       <div className="container mx-auto px-6 sm:px-8 relative z-20">
         <div className="max-w-6xl mx-auto">
@@ -124,7 +95,7 @@ export function Home({ t, onNavigate }: HomeProps) {
                   <Badge
                     key={specialty}
                     variant="secondary"
-                    className="text-xs sm:text-sm font-medium px-3 py-1 bg-primary/10 text-primary border border-primary/20"
+                    className="text-xs sm:text-sm font-medium font-latin px-3 py-1 bg-primary/10 text-primary border border-primary/20"
                   >
                     {specialty}
                   </Badge>

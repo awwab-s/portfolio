@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-
-const BURST_PARTICLES = 6;
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 
 export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
@@ -23,7 +26,7 @@ export function CustomCursor() {
   useEffect(() => {
     const pointerFine = window.matchMedia("(pointer: fine)").matches;
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     setEnabled(pointerFine && !reducedMotion);
   }, []);
@@ -37,7 +40,7 @@ export function CustomCursor() {
 
       const target = e.target as HTMLElement;
       setIsPointerTarget(
-        !!target.closest("a, button, [role='button'], input, textarea, select")
+        !!target.closest("a, button, [role='button'], input, textarea, select"),
       );
     };
 
@@ -87,19 +90,65 @@ export function CustomCursor() {
   );
 }
 
-/**
- * Separate component so it can own the click listener + burst state
- * independently, keeping the mouse-move-heavy logic above simpler.
- */
+// Bubble clickburst effect
+interface Bubble {
+  angle: number;
+  distance: number;
+  size: number;
+  duration: number;
+  color: string;
+}
+
+interface Burst {
+  id: string;
+  x: number;
+  y: number;
+  bubbles: Bubble[];
+}
+
+const BUBBLE_COLORS = [
+  "bg-red-500 dark:bg-red-400",
+  "bg-orange-500 dark:bg-orange-400",
+  "bg-amber-500 dark:bg-amber-400",
+  "bg-yellow-500 dark:bg-yellow-400",
+  "bg-lime-500 dark:bg-lime-400",
+  "bg-green-500 dark:bg-green-400",
+  "bg-emerald-500 dark:bg-emerald-400",
+  "bg-teal-500 dark:bg-teal-400",
+  "bg-cyan-500 dark:bg-cyan-400",
+  "bg-sky-500 dark:bg-sky-400",
+  "bg-blue-500 dark:bg-blue-400",
+  "bg-indigo-500 dark:bg-indigo-400",
+  "bg-violet-500 dark:bg-violet-400",
+  "bg-purple-500 dark:bg-purple-400",
+  "bg-fuchsia-500 dark:bg-fuchsia-400",
+  "bg-pink-500 dark:bg-pink-400",
+  "bg-rose-500 dark:bg-rose-400",
+];
+
+function createBubbles(): Bubble[] {
+  // 7-10 bubbles per click, each with its own random angle, travel, distance, size, and speed.
+  const count = 7 + Math.floor(Math.random() * 4);
+
+  return Array.from({ length: count }, () => ({
+    angle: Math.random() * Math.PI * 2,
+    distance: 18 + Math.random() * 42,
+    size: 4 + Math.random() * 8,
+    duration: 0.45 + Math.random() * 0.45,
+    color: BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)],
+  }));
+}
+
 function ClickBursts() {
-  const [bursts, setBursts] = useState<{ id: string; x: number; y: number }[]>(
-    []
-  );
+  const [bursts, setBursts] = useState<Burst[]>([]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const id = `${Date.now()}-${Math.random()}`;
-      setBursts((prev) => [...prev, { id, x: e.clientX, y: e.clientY }]);
+      setBursts((prev) => [
+        ...prev,
+        { id, x: e.clientX, y: e.clientY, bubbles: createBubbles() },
+      ]);
     };
 
     window.addEventListener("click", handleClick);
@@ -114,29 +163,27 @@ function ClickBursts() {
           className="fixed z-[9998] pointer-events-none"
           style={{ left: burst.x, top: burst.y }}
         >
-          {Array.from({ length: BURST_PARTICLES }).map((_, i) => {
-            const angle = (i / BURST_PARTICLES) * Math.PI * 2;
-            const distance = 40;
-            return (
-              <motion.span
-                key={i}
-                className="absolute h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
-                initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                animate={{
-                  x: Math.cos(angle) * distance,
-                  y: Math.sin(angle) * distance,
-                  opacity: 0,
-                  scale: 0,
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                onAnimationComplete={() => {
-                  if (i === 0) {
-                    setBursts((prev) => prev.filter((b) => b.id !== burst.id));
-                  }
-                }}
-              />
-            );
-          })}
+          {burst.bubbles.map((bubble, i) => (
+            <motion.span
+              key={i}
+              className={`absolute rounded-full ${bubble.color}`}
+              style={{ width: bubble.size, height: bubble.size }}
+              initial={{ x: 0, y: 0, opacity: 1, scale: 0.6 }}
+              animate={{
+                x: Math.cos(bubble.angle) * bubble.distance,
+                // Slight downward drift added to the vertical component so bubbles feel like they're floating/falling, not just flying outward in a flat straight line
+                y: Math.sin(bubble.angle) * bubble.distance + 10,
+                opacity: 0,
+                scale: 1.1,
+              }}
+              transition={{ duration: bubble.duration, ease: "easeOut" }}
+              onAnimationComplete={() => {
+                if (i === 0) {
+                  setBursts((prev) => prev.filter((b) => b.id !== burst.id));
+                }
+              }}
+            />
+          ))}
         </div>
       ))}
     </AnimatePresence>
