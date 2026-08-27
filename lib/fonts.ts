@@ -35,39 +35,39 @@ export const notoSansArabic = Noto_Sans_Arabic({
 //   display: "swap",
 // });
 
-// export const vazirmatn = Vazirmatn({
-//   subsets: ["arabic", "latin"],
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-persian",
-//   display: "swap",
-// });
-
-export const parastoo = localFont({
-  src: [
-    {
-      path: "../public/fonts/Parastoo-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Parastoo-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Parastoo-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Parastoo-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+export const vazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-persian",
   display: "swap",
 });
+
+// export const parastoo = localFont({
+//   src: [
+//     {
+//       path: "../public/fonts/Parastoo-Regular.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/Parastoo-Medium.ttf",
+//       weight: "500",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/Parastoo-SemiBold.ttf",
+//       weight: "600",
+//       style: "normal",
+//     },
+//     {
+//       path: "../public/fonts/Parastoo-Bold.ttf",
+//       weight: "700",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-persian",
+//   display: "swap",
+// });
 
 
 
@@ -90,6 +90,6 @@ export const fontVariables = [
   notoSansArabic.variable,
   pakTypeNaskh.variable,
   // notoNastaliqUrdu.variable,
-  // vazirmatn.variable,
-  parastoo.variable,
+  vazirmatn.variable,
+  // parastoo.variable,
 ].join(" ");
