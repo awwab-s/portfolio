@@ -51,12 +51,16 @@ export interface Translation {
     subtitle: string
     education: string
     experience: string
+    showMore: string
+    showLess: string
   }
   projects: {
     title: string
     subtitle: string
     viewProject: string
     viewCode: string
+    showMore: string
+    showLess: string
   }
   skills: {
     title: string

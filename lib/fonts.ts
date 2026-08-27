@@ -5,6 +5,7 @@ import {
   Noto_Nastaliq_Urdu,
   Vazirmatn,
 } from "next/font/google";
+import localFont from "next/font/local";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -27,12 +28,12 @@ export const notoSansArabic = Noto_Sans_Arabic({
   display: "swap",
 });
 
-export const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-urdu",
-  display: "swap",
-});
+// export const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
+//   subsets: ["arabic"],
+//   weight: ["400", "500", "600", "700"],
+//   variable: "--font-urdu",
+//   display: "swap",
+// });
 
 export const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -41,10 +42,25 @@ export const vazirmatn = Vazirmatn({
   display: "swap",
 });
 
+
+// export const nafeesWebNaskh = localFont({
+//   src: "../public/fonts/Nafees-Web-Naskh.ttf",
+//   variable: "--font-urdu",
+//   display: "swap",
+// });
+
+export const pakTypeNaskh = localFont({
+  src: "../public/fonts/PakType-Naskh-Basic.ttf",
+  variable: "--font-urdu",
+  display: "swap",
+});
+
+
 export const fontVariables = [
   poppins.variable,
   spaceGrotesk.variable,
   notoSansArabic.variable,
-  notoNastaliqUrdu.variable,
+  pakTypeNaskh.variable,
+  // notoNastaliqUrdu.variable,
   vazirmatn.variable,
 ].join(" ");

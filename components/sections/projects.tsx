@@ -108,7 +108,7 @@ export function Projects({ t }: ProjectsProps) {
               <Button
                 variant={selectedCategory === "all" ? "default" : "outline"}
                 onClick={() => setSelectedCategory("all")}
-                className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105"
+                className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105 font-latin"
               >
                 All
                 <Badge
@@ -127,7 +127,7 @@ export function Projects({ t }: ProjectsProps) {
                   onClick={() =>
                     setSelectedCategory(category.id as ProjectCategory)
                   }
-                  className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105"
+                  className="cursor-pointer text-sm sm:text-base transition-all duration-200 ease-in-out hover:scale-105 font-latin"
                 >
                   {category.name}
                   <Badge
@@ -181,7 +181,7 @@ export function Projects({ t }: ProjectsProps) {
                 onClick={() => setShowAllProjects(!showAllProjects)}
                 className="cursor-pointer flex items-center gap-2 transition-all duration-300 ease-in-out hover:scale-105 bg-background/90 backdrop-blur-sm border shadow-sm"
               >
-                {showAllProjects ? "Show Less" : "Show More"}
+                {showAllProjects ? t.projects.showLess : t.projects.showMore}
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ease-in-out ${
                     showAllProjects ? "rotate-180" : "rotate-0"

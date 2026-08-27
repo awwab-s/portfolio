@@ -51,7 +51,7 @@ export function Header({
           {/* Logo */}
           <div
             className="
-              text-2xl font-bold px-3 cursor-pointer font-special
+              text-2xl font-bold px-3 cursor-pointer font-special font-latin
               bg-gradient-to-r rtl:bg-gradient-to-l from-blue-500 to-purple-500 bg-clip-text 
               text-primary hover:text-transparent
               transition-all duration-400 ease-in-out

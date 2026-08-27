@@ -24,6 +24,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, t }: ProjectCardProps) {
   return (
     <Card className="group will-change-transform p-0 hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 ease-out bg-background backdrop-blur-sm border shadow-sm flex flex-col h-full overflow-hidden">
+      {/* Image */}
       <div className="relative overflow-hidden">
         <Image
           src={project.image || "/placeholder.svg"}
@@ -34,10 +35,11 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
         />
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
+        {/* Category and Year Badges */}
         <div className="absolute top-3 left-3">
           <Badge
             key={project.category}
-            className={`text-xs ${projectCategories[project.category].color}`}
+            className={`text-xs font-latin ${projectCategories[project.category].color}`}
           >
             {projectCategories[project.category].name}
           </Badge>
@@ -45,7 +47,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
         <div className="absolute top-3 right-3">
           <Badge
             variant="secondary"
-            className="text-xs bg-background/90 text-foreground"
+            className="text-xs font-latin bg-background/90 text-foreground"
           >
             <Calendar className="w-3 h-3 mr-1" />
             {project.year}
@@ -54,7 +56,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
       </div>
 
       {/* Title and Description */}
-      <CardHeader className="mb-4 text-left">
+      <CardHeader className="mb-4 text-left font-latin">
         <CardTitle className="mb-2">{project.title}</CardTitle>
         <CardDescription className="leading-relaxed">
           {project.description}
@@ -62,7 +64,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
       </CardHeader>
 
       {/* Tech badges */}
-      <CardContent className="mt-auto">
+      <CardContent className="mt-auto font-latin">
         <div className="flex flex-wrap gap-2 ltr:flex-row rtl:flex-row-reverse">
           {project.tech.map((tech, techIndex) => (
             <Badge key={techIndex} variant="secondary" className="text-xs">
@@ -72,7 +74,7 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
         </div>
       </CardContent>
 
-      {/* Buttons */}
+      {/* Links */}
       <CardFooter className="pb-6">
         <div className="flex gap-4 w-full">
           <Button

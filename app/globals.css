@@ -132,27 +132,38 @@
 
 /* Custom font-family */
 html[lang="ar"] body {
-  font-family: var(--font-arabic);
+  font-family: var(--font-arabic), var(--font-poppins);
 }
 html[lang="ur"] body {
-  font-family: var(--font-urdu);
+  font-family: var(--font-urdu), var(--font-poppins);
 }
 html[lang="fa"] body {
-  font-family: var(--font-persian);
+  font-family: var(--font-persian), var(--font-poppins);
 }
 
 .font-special {
   font-family: var(--font-space-grotesk);
 }
 
+.font-latin {
+  font-family: var(--font-poppins);
+}
+
 html[lang="ar"] .font-special {
-  font-family: var(--font-arabic);
+  font-family: var(--font-arabic), var(--font-space-grotesk);
 }
 html[lang="ur"] .font-special {
-  font-family: var(--font-urdu);
+  font-family: var(--font-urdu), var(--font-space-grotesk);
 }
 html[lang="fa"] .font-special {
-  font-family: var(--font-persian);
+  font-family: var(--font-persian), var(--font-space-grotesk);
+}
+
+html[lang="ar"] .font-special.font-latin,
+html[lang="ur"] .font-special.font-latin,
+html[lang="fa"] .font-special.font-latin,
+.font-special.font-latin {
+  font-family: var(--font-space-grotesk);
 }
 
 

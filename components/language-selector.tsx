@@ -39,9 +39,9 @@ export function LanguageSelector({
               currentLanguage === option.code ? "bg-accent" : ""
             }`}
           >
-            <span className="text-xl leading-none">{option.flag}</span>
+            <span className="text-xl font-latin leading-none">{option.flag}</span>
             <div className="flex flex-col">
-              <span className="font-medium">{option.name}</span>
+              <span className="font-medium font-latin">{option.name}</span>
               <span className="text-xs text-muted-foreground">
                 {option.nativeName}
               </span>

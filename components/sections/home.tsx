@@ -198,6 +198,7 @@ export function Home({ t, onNavigate }: HomeProps) {
               </motion.div>
             </motion.div>
           </div>
+
           {/* Scroll Down Indicator */}
           <div className="flex flex-col items-center mt-8 md:mt-4 lg:mt-12 text-muted-foreground animate-bounce">
             <ChevronDown className="w-6 h-6" />

@@ -32,10 +32,11 @@ export function Footer({ t, onNavigate }: FooterProps) {
     <footer className="border-t py-4">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-xl font-bold text-primary font-special">
+          <div className="text-xl font-bold text-primary font-special font-latin">
             Awwab
           </div>
 
+          {/* Social Links */}
           <div className="flex space-x-2">
             {socialLinks.map((social) => {
               if (social.icon === "discord") {
@@ -71,9 +72,9 @@ export function Footer({ t, onNavigate }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom section - Copyright */}
+        {/* Copyright */}
         <div className="text-center mt-3 pt-4 border-t">
-          <p className="text-muted-foreground text-xs">
+          <p className="text-muted-foreground text-xs font-latin">
             © 2026 Awwab. {t.footer.rights}
           </p>
         </div>

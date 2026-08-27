@@ -24,6 +24,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
         <p className="sm:text-lg text-muted-foreground">{t.skills.subtitle}</p>
       </ScrollReveal>
 
+      {/* Marquee Skills Container */}
       <div
         className="relative overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
         dir="ltr"
@@ -49,7 +50,7 @@ export function Skills({ t, isRTL }: SkillsProps) {
                   />
                 </motion.div>
                 <p
-                  className={`text-center text-md font-medium mt-3 max-w-[128px] mx-auto truncate transition-opacity duration-300 opacity-100 lg:opacity-0 lg:group-hover:opacity-100`}
+                  className={`text-center text-md font-medium mt-3 max-w-[128px] mx-auto truncate transition-opacity duration-300 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 font-latin`}
                 >
                   {skill.name}
                 </p>

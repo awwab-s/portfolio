@@ -61,7 +61,7 @@ export function Contact({ t, isRTL }: ContactProps) {
                     {t.contact.contactInfo}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-sm sm:text-base px-4 sm:px-6">
+                <CardContent className="space-y-4 text-sm sm:text-base px-4 sm:px-6 font-latin">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
                     <span>{contactInfo.email}</span>
