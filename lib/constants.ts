@@ -42,7 +42,7 @@ export const timelineData: TimelineItem[] = [
     location: "Irving, TX",
     date: "Jun 2007 - May 2015",
     type: "education",
-    logo: "logos/isi.png"
+    logo: "logos/isi.jpg"
   },
   // Experience
   {
@@ -65,12 +65,32 @@ export const timelineData: TimelineItem[] = [
 
 export const projects: Project[] = [
   {
+    title: "Comparing YOLOv8 & RT-DETR for Road Damage Detection",
+    description: "A comparative analysis of 2 deep learning architecutres: YOLOv8 and RT-DETR trained across 4 road damage categories.",
+    image: "/project-ss/road-damage-detection.png",
+    tech: ["Python", "Ultralytics", "YOLOv8", "RT-DETR", "Google Colab"],
+    github: "https://lnkd.in/p/dQ-JaR57",
+    live: "/project-ss/road-damage-detection-paper.pdf",
+    category: "ai-ml",
+    year: 2026,
+  },
+  {
     title: "Pizzario: A Pizza Ordering App",
     description: "A mobile app that simulates a complete pizza ordering experience from browsing & pizza customization to checkout.",
     image: "/project-ss/pizza-app.png",
     tech: ["React Native", "Android", "Javascript", "Firebase", "OpenStreetMap"],
     github: "https://github.com/awwab-s/pizza-app",
     live: "/project-ss/pizza-app.mp4",
+    category: "web-app",
+    year: 2025,
+  },
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio website to showcase my skills, projects, experience, and contact information.",
+    image: "/project-ss/portfolio.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Framer Motion", "Vercel"],
+    github: "https://github.com/awwab-s/portfolio",
+    live: "https://awwabsamad.vercel.app/",
     category: "web-app",
     year: 2025,
   },
