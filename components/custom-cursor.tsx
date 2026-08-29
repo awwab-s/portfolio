@@ -133,7 +133,7 @@ function createBubbles(): Bubble[] {
   return Array.from({ length: count }, () => ({
     angle: Math.random() * Math.PI * 2,
     distance: 18 + Math.random() * 42,
-    size: 4 + Math.random() * 8,
+    size: 7 + Math.random() * 8,
     duration: 0.45 + Math.random() * 0.45,
     color: BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)],
   }));

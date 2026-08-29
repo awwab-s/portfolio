@@ -153,8 +153,8 @@ export const translations: Record<Language, Translation> = {
       showLess: "کم دیکھیں",
     },
     skills: {
-      title: "مہارتیں اور تیکنالوجیاں",
-      subtitle: "تیکنالوجیاں جن کے ساتھ میں کام کرتا ہوں",
+      title: "مہارتیں اور ٹیکنالوجیاں",
+      subtitle: "ٹیکنالوجیاں جن کے ساتھ میں کام کرتا ہوں",
     },
     contact: {
       title: "رابطہ کریں",

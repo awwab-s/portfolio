@@ -13,8 +13,8 @@ export interface Project {
   description: string
   image: string
   tech: string[]
-  github: string
-  live: string
+  github?: string
+  live?: string
   category: ProjectCategory
   year: number
 }

@@ -77,35 +77,63 @@ export function ProjectCard({ project, t }: ProjectCardProps) {
       {/* Links */}
       <CardFooter className="pb-6">
         <div className="flex gap-4 w-full">
-          <Button
-            size="sm"
-            variant="outline"
-            asChild
-            className="cursor-pointer flex-1 min-w-0 gap-2"
-          >
-            <Link
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
+          {project.github ? (
+            <Button
+              size="sm"
+              variant="outline"
+              asChild
+              className="cursor-pointer flex-1 min-w-0 gap-2"
+            >
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-4 h-4" />
+                <span className="whitespace-nowrap truncate">
+                  {t.projects.viewCode}
+                </span>
+              </Link>
+            </Button>
+          ) : (
+            <Button
+              size="sm"
+              variant="outline"
+              disabled
+              className="flex-1 min-w-0 gap-2"
             >
               <Github className="w-4 h-4" />
               <span className="whitespace-nowrap truncate">
                 {t.projects.viewCode}
               </span>
-            </Link>
-          </Button>
-          <Button
-            size="sm"
-            asChild
-            className="cursor-pointer flex-1 min-w-0 gap-2"
-          >
-            <Link href={project.live} target="_blank" rel="noopener noreferrer">
+            </Button>
+          )}
+
+          {project.live ? (
+            <Button
+              size="sm"
+              asChild
+              className="cursor-pointer flex-1 min-w-0 gap-2"
+            >
+              <Link
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span className="whitespace-nowrap truncate">
+                  {t.projects.viewProject}
+                </span>
+              </Link>
+            </Button>
+          ) : (
+            <Button size="sm" disabled className="flex-1 min-w-0 gap-2">
               <ExternalLink className="w-4 h-4" />
               <span className="whitespace-nowrap truncate">
                 {t.projects.viewProject}
               </span>
-            </Link>
-          </Button>
+            </Button>
+          )}
         </div>
       </CardFooter>
     </Card>
