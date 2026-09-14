@@ -50,7 +50,7 @@ export function Home({ t, onNavigate }: HomeProps) {
               transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
             >
               <motion.div
-                className="rounded-4xl mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1.25 md:p-1.5 shadow-lg"
+                className="rounded-[2.25rem] mx-auto w-[clamp(192px,40vw,384px)] aspect-square bg-gradient-to-r from-blue-500 to-purple-500 p-1.25 md:p-1.5 shadow-lg"
                 animate={{ y: [0, -10, 0] }}
                 transition={{
                   duration: 6,

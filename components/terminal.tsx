@@ -167,21 +167,22 @@ export function Terminal({
 
   return (
     <>
-      {/* Trigger button: bobs continuously, scales + gets a gradient
-          ring on hover. Desktop only, same call as the custom cursor. */}
-      {/* <motion.button
-        onClick={() => setOpen(true)}
-        aria-label="Open terminal"
-        className="hidden md:block fixed bottom-6 right-6 z-40 rounded-full group"
+      {/* Terminal button (desktop only) */}
+      {/* <motion.div
+        className="hidden md:flex fixed bottom-6 right-6 z-40"
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-        whileHover={{ scale: 1.15 }}
       >
-        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]" />
-        <span className="relative flex h-12 w-12 items-center justify-center rounded-full border bg-background/90 backdrop-blur-sm shadow-lg m-[2px]">
+        <motion.button
+          onClick={() => setOpen(true)}
+          aria-label="Open terminal"
+          className="h-12 w-12 flex items-center justify-center rounded-xl border bg-background/90 backdrop-blur-sm shadow-lg hover:border-hover transition-colors duration-300"
+          whileHover={{ scale: 1.15 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
           <TerminalIcon className="h-5 w-5 text-primary" />
-        </span>
-      </motion.button> */}
+        </motion.button>
+      </motion.div> */}
       <motion.div
         className="hidden md:flex fixed bottom-6 right-6 z-40"
         animate={{ y: [0, -8, 0] }}
@@ -190,11 +191,20 @@ export function Terminal({
         <motion.button
           onClick={() => setOpen(true)}
           aria-label="Open terminal"
-          className="h-12 w-12 flex items-center justify-center rounded-xl border bg-background/90 backdrop-blur-sm shadow-lg hover:border-hover/60 transition-colors duration-300"
+          className="group relative h-12 w-12 flex items-center justify-center rounded-xl p-[1.5px]"
           whileHover={{ scale: 1.15 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <TerminalIcon className="h-5 w-5 text-primary" />
+          {/* Glow */}
+          <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-25 blur-sm transition-opacity duration-300" />
+
+          {/* Gradient Outline */}
+          <span className="absolute inset-0 rounded-[15px] bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* Inner Button */}
+          <span className="relative z-10 flex h-full w-full items-center justify-center rounded-xl bg-background border group-hover:border-transparent transition-colors duration-300">
+            <TerminalIcon className="h-5 w-5 text-primary" />
+          </span>
         </motion.button>
       </motion.div>
 
