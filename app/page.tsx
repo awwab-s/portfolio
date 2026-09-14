@@ -11,10 +11,11 @@ import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
+import { Terminal } from "@/components/terminal";
 
 export default function Portfolio() {
   const { language, setLanguage } = useLanguage();
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, setTheme } = useTheme();
 
   const isRTL = language === "ar" || language === "ur" || language === "fa";
   const t = translations[language];
@@ -45,6 +46,13 @@ export default function Portfolio() {
       <Footer t={t} onNavigate={scrollToSection} />
 
       <CustomCursor />
+      <Terminal
+        isDark={isDark}
+        onThemeChange={setTheme}
+        language={language}
+        onLanguageChange={setLanguage}
+        onNavigate={scrollToSection}
+      />
     </div>
   );
 }
