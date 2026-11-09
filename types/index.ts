@@ -84,7 +84,7 @@ export interface Translation {
 }
 
 export type Language = "en" | "ar" | "ur" | "fr" | "es" | "fa"
-export type ProjectCategory = "web-app" | "ai-ml" | "cpp" | "other"
+export type ProjectCategory = "web-app" | "ai-ml" | "hardware" | "other"
 
 export interface LanguageOption {
   code: Language

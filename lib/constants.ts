@@ -147,7 +147,7 @@ export const projects: Project[] = [
     description: "ESP32 based IoT system to monitor weather conditions using MQTT Broker and send data to web server.",
     image: "/project-ss/weather-monitor.png",
     tech: ["ESP32", "Arduino IDE", "C Language", "MQTTX", "PowerBI"],
-    category: "other",
+    category: "hardware",
     year: 2024,
   },
   {
@@ -170,12 +170,21 @@ export const projects: Project[] = [
     year: 2023,
   },
   {
+    title: "RISC-Based 5-Stage MIPS Pipeline Architecture",
+    description: "A 32-bit RISC processor based on the Hennessy \& Patterson's MIPS architecture, with full 5-stage pipeline (IF, ID, EX, MEM, WB) and forwarding logic to resolve data hazards.",
+    image: "/project-ss/mips-pipeline.png",
+    tech: ["Verilog HDL", "Xilinx Vivado", "RISC Architecture"],
+    live: "",
+    category: "hardware",
+    year: 2023,
+  },
+  {
     title: "Water Level & Temperature Monitoring System",
     description: "STM32 based embedded system to monitor water level and temperatures with battery power optimization.",
     image: "/project-ss/water-level-monitor.png",
     tech: ["Keil uVision", "STM32CubeIDE", "C Language", "HTerm"],
     live: "https://www.youtube.com/watch?v=hP45KTkbLyo",
-    category: "other",
+    category: "hardware",
     year: 2023,
   },
   {
@@ -193,7 +202,7 @@ export const projects: Project[] = [
     image: "/project-ss/hangman.png",
     tech: ["C++", "gcc", "Makefile", "Cygwin"],
     github: "https://github.com/awwab-s/hangman-game",
-    category: "cpp",
+    category: "other",
     year: 2021,
   },
   // {
@@ -495,15 +504,15 @@ export const contactInfo = {
 
 export const projectCategories: Record<ProjectCategory, CategoryOption> = {
   "web-app": {
-    name: "Web/App Dev",
+    name: "Web/App",
     color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
   },
   "ai-ml": {
     name: "AI/ML",
     color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
   },
-  cpp: {
-    name: "C/C++",
+  "hardware": {
+    name: "Hardware/IoT",
     color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
   },
   // gamedev: {
